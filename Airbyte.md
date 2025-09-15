@@ -23,4 +23,6 @@ A connection is an **automated data pipeline** that replicates data from a sourc
 
 
 
-#### 
+#### Stream
+A stream is a group of related records. Depending on the destination, it may be called a table, file, or blob. We use the term `stream` to generalize the flow of data to various destinations.
+
