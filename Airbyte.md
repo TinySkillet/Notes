@@ -21,14 +21,12 @@ A connection is an **automated data pipeline** that replicates data from a sourc
 | **Destination Namespace and Stream Prefix** | Where should the replicated data be written?                   |
 | **Schema Propagation**                      | How should Airbyte handle schema drift in sources?             |
 
-
 #### Stream
 A stream is a group of related records. Depending on the destination, it may be called a table, file, or blob. We use the term `stream` to generalize the flow of data to various destinations.
 
 - A table in a relational database.
 - A resource or API endpoint for a REST API.
 - The records from a directory containing many files in a filesystem.
-
 
 #### Record
 Record is a single entry or unit of data.
@@ -37,13 +35,11 @@ Record is a single entry or unit of data.
 - A line in a file
 - A unit of data returned from an API
 
-
 #### Field
 A field is an attribute of a record in a stream.
 
 - A column in the table in a relational database
 - A field in an API response
-
 
 #### Sync Schedule
 There are three options for scheduling a sync to run:
@@ -52,9 +48,10 @@ There are three options for scheduling a sync to run:
 - CRON schedule
 - Manual 
 
-
 #### Destination Namespace
 A namespace defines where the data will be written to your destination. Depending on your destination, you may know this more commonly as the "Dataset", "Schema", or "Bucket Path".
 
+
+[**Read Other Concepts**](https://docs.airbyte.com/platform/using-airbyte/core-concepts/#connection)
 
 
