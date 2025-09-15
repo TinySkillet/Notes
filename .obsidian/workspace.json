@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#data-connectors",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -157,8 +157,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           },
           {
@@ -172,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -196,6 +196,8 @@
   "lastOpenFiles": [
     "EL Data Pipelines.md",
     "Airbyte.md",
+    "Untitled.canvas",
+    "2025-09-15.md",
     "Welcome.md"
   ]
 }

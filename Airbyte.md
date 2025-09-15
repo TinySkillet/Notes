@@ -1,3 +1,5 @@
+#data-connectors #lasius #lasius-kb
+
 [Airbyte](https://docs.airbyte.com/) is an open source infrastructure for building **EL** *(extract and load)* data pipelines. 
 
 With **Airbyte**, we can build data pipelines and replicate data from a source to destination. It provides configuration on how frequently data is synced, what data is replicated, and how the data is written to in the destination.
