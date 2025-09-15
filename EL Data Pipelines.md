@@ -17,7 +17,6 @@ Unlike traditional **ETL** (Extract, Transform, Load) pipelines, **ELT** pipelin
 *An e-commerce brand might use ELT to identify repeat customers who purchased specific items and then trigger automated campaigns with personalized offers.*
 
 
-
 ##### **FURTHER READING**
 **[[Airbyte]]
 
