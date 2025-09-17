@@ -58,6 +58,18 @@ The location of this directory ensures that root always has access to its home f
 #### 10. run
 **run** is a `tempfs` file system which means it runs in RAM. Everything in it is gone when system is rebooted or shut down.  It's used for processes that start early in the boot procedure to store runtime information that they use to function.
 
-
 #### 11. srv
-**srv** is the service directory wher
+**srv** is the service directory where service data is stored. If you run a `HTTP` or a `FTP` server, you will store the files that will be accessed by external users here.
+
+
+#### 12. sys
+**sys** is the way to interact with the kernel. This directory is similar to run directory. It is similar to the run directory and it's not physically written to the disk. It's created everytime the system boots up.
+
+#### 13. temp
+This is where files are temporarily stored by applications that can be used during a session.
+
+
+> [!NOTE] Example
+> If you are writing a document in a word processor, it will regularly save a temporary copy of what you have written here. So that if the application crashes, it can look here to see if there is a recent saved copy that you can recover.
+
+This folder is usually emptied when you reboot the system. On occassion you may find some files or directories remain there because the system can't delete them.
