@@ -1,4 +1,4 @@
-**In Linux, everything is a file!**
+**Linux, following Unix, has a standard where everything is a file. **
 
 **'/'** is the main directory that contains everything in Linux. 
 
@@ -8,9 +8,15 @@
 2. **sbin**
    sbin contains the system binaries, that a system admin would use. Standard user wouldn't have access to these.
 
- Both of these folders contain the files that need to accessible when running in*single user mode.* **Single user mode** is a special mode that boots you in as a root user to allow you to do system repairs and upgrades or testing.
+	 Both of these folders contain the files that need to accessible when running in*single user mode.* **Single user mode** is a special mode that boots you in as a root user to allow you to do system repairs and upgrades or testing.
 
- 3. **boot**boot contains everything the OS needs to boot. The bootloader lives here. *You don't want to touch this folder.*
+3. **boot**
+   boot contains everything your system needs to boot. The bootloader lives here. *You don't want to touch this folder.*
 
+4. **dev**
+   This is where your devices live. Here you will find your hardware. A disk for example will be: `dev/sda` and the partitions on that disk would be `dev/sda1`, `dev/sda2`, etc.
+   
+   You can find anything here from your webcam to your keyboard. *This is typically an area that applications and drivers will access and is rarely something a user should be dabbling in.*
 
-4. 
+4. **/etc**
+   It has been confirmed by Dennis Ritchie that etc 
