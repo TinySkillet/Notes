@@ -86,4 +86,6 @@ This is the user application space where applications will be installed that are
 
 
 > [!NOTE] Example
-> /var/crash 
+> `/var/crash` contains information about processes that have crashed. `/var/log` contains log files for both system and many different application which will constantly grow in size as you use the system.
+
+  
