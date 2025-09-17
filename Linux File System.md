@@ -25,4 +25,6 @@
    These are where the libraries are stored. Libraries are files that applications can use to perform various functions. *Binaries in bin and sbin can may require libraries that they will reference from the lib folders.* 
 
 6. **mnt, media**
-   This 
+   These  directories are where you will find your other mounted drives. It can be a floppy disk, USB stick, external hard drive, network drive or even a second hard drive.
+   
+   **This media folder wasn't always around though.** It was typically just mnt and that was where you mounted your storage devices. Nowadays, most distros
