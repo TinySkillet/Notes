@@ -25,20 +25,33 @@
    These are where the libraries are stored. Libraries are files that applications can use to perform various functions. *Binaries in bin and sbin can may require libraries that they will reference from the lib folders.* 
 
 #### 6. mnt, media
-   These  directories are where you will find your other mounted drives. It can be a floppy disk, USB stick, external hard drive, network drive or even a second hard drive.
+   These directories are where you will find your other mounted drives. It can be a floppy disk, USB stick, external hard drive, network drive or even a second hard drive.
    
-   **This media folder wasn't always around though.** It was typically just mnt and that was where you mounted your storage devices. *Nowadays, most distros automatically mount devices for you, in the media directory.* 
+   **This media folder wasn't always around though.** There used to be just **mnt** and that was where you mounted your storage devices. *Nowadays, most distros automatically mount devices for you, in the media directory.* 
    
-   **So the USB stick that you inserted, would be in media/your-username/device-name **
-   
-   If you are mounting things manually,  use the **mnt** directory and leave the **media** directory to the OS to manage.
+
+> [!NOTE] Info
+> The USB stick that you insert would be in `media/your-username/device-name`
+
+
+> [!NOTE] Which directory to use?
+> If you are mounting things manually, use the mnt directory. Leave the media directory to the OS to manage.
+
    
 #### 7. opt
-opt is usually where manually installed software from vendors reside. 
+**opt** is usually where manually installed software from vendors reside. 
 
 #### 8. proc
-proc is where you will find psuedo files that contain information about system processes and resources. Every process will have a directory here which contains information on that process. 
+**proc** is where you will find psuedo files that contain information about system processes and resources. Every process will have a directory here which contains information on that process. 
+
+
+> [!NOTE] Example
+>  If you navigate to a process, say `/proc/2244` , you will see all kinds of pseudo files. This is much like in the `dev` where they are not exactly files in the system. This is the kernel translating other information to appear as files.
+
 
 **For example**: If you navigate to a process, say `/proc/2244` , you will see all kinds of psuedo files. This is much like dev where they are not exactly files in the system. This is the kernel translating other information to appear as files.
 
 You can also find information for CPU for example `/proc/cpuinfo`, or uptime `/proc/uptime`. 
+
+#### 9. root
+root is the 
