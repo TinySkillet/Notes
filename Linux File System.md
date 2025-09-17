@@ -37,4 +37,9 @@
 opt is usually where manually installed software from vendors reside. 
 
 #### 8. proc
-proc is where you will find sudo files that contain information about system processes and resources. Every process will have a directory here
+proc is where you will find psuedo files that contain information about system processes and resources. Every process will have a directory here which contains information on that process. 
+
+**For example**: If you navigate to a process, say `/proc/2244` , you will see all kinds of psuedo files. This is much like dev where they are not exactly files in the system. This is the kernel translating other information to appear as files.
+
+You can also find information for CPU for example `/proc/cpuinfo`, or uptime '/proc/'
+#### 9. 
