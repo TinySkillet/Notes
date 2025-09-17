@@ -29,3 +29,12 @@
    
    **This media folder wasn't always around though.** It was typically just mnt and that was where you mounted your storage devices. *Nowadays, most distros automatically mount devices for you, in the media directory.* 
    
+   **So the USB stick that you inserted, would be in media/your-username/device-name **
+   
+   If you are mounting things manually,  use the **mnt** directory and leave the **media** directory to the OS to manage.
+   
+#### 7. opt
+opt is usually where manually installed software from vendors reside. 
+
+#### 8. proc
+proc is where you will find sudo files that contain information about system processes and resources. Every process will have a directory here
