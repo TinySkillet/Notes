@@ -18,5 +18,11 @@
    
    You can find anything here from your webcam to your keyboard. *This is typically an area that applications and drivers will access and is rarely something a user should be dabbling in.*
 
-4. **/etc**
-   It has been confirmed by Dennis Ritchie that etc 
+4. **etc**
+   It has been confirmed by Dennis Ritchie that *etc* actually means Et cetera. This folder is where all your **system-wide configurations** are stored. 
+
+5. **lib folders (lib, lib32, lib64)**
+   These are where the libraries are stored. Libraries are files that applications can use to perform various functions. *Binaries in bin and sbin can may require libraries that they will reference from the lib folders.* 
+
+6. **mnt, media**
+   This 
