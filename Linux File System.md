@@ -44,14 +44,20 @@
 #### 8. proc
 **proc** is where you will find psuedo files that contain information about system processes and resources. Every process will have a directory here which contains information on that process. 
 
+You can  find information for CPU for example `/proc/cpuinfo`, or uptime `/proc/uptime`. 
 
 > [!NOTE] Example
 >  If you navigate to a process, say `/proc/2244` , you will see all kinds of pseudo files. This is much like in the `dev` where they are not exactly files in the system. This is the kernel translating other information to appear as files.
 
 
-**For example**: If you navigate to a process, say `/proc/2244` , you will see all kinds of psuedo files. This is much like dev where they are not exactly files in the system. This is the kernel translating other information to appear as files.
-
-You can also find information for CPU for example `/proc/cpuinfo`, or uptime `/proc/uptime`. 
-
 #### 9. root
-root is the 
+**root** is the root user's home folder. Unlike a user's home folder, it does not contain the typical directories inside and it doesn't reside in the home directory. You can store files here if you like but you need root permission to access it.
+
+The location of this directory ensures that root always has access to its home folder in case you have the regular users home directory stored on another drive which you cannot access.
+
+#### 10. run
+**run** is a `tempfs` file system which means it runs in RAM. Everything in it is gone when system is rebooted or shut down.  It's used for processes that start early in the boot procedure to store runtime information that they use to function.
+
+
+#### 11. srv
+**srv** is the service directory wher
