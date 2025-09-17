@@ -72,4 +72,18 @@ This is where files are temporarily stored by applications that can be used duri
 > [!NOTE] Example
 > If you are writing a document in a word processor, it will regularly save a temporary copy of what you have written here. So that if the application crashes, it can look here to see if there is a recent saved copy that you can recover.
 
-This folder is usually emptied when you reboot the system. On occassion you may find some files or directories remain there because the system can't delete them.
+This folder is usually emptied when you reboot the system. On occasion you may find some files or directories that remain and stuck there because the system can't delete them.
+This is fine unless there are hundreds of file or are taking a lot of space. In that case you can login as the root user and manually delete them.
+
+#### 14. usr
+**usr** stands for 'Unix System Resource'.
+
+This is the user application space where applications will be installed that are used by the user. As oppose to the bin directory used by the system and admin to perform maintenance. Any applications installed here are considered non-essential for basic system operations. 
+
+
+#### 15. var
+ It contains files and directories that are expected to grow in size. 
+
+
+> [!NOTE] Example
+> /var/crash 
