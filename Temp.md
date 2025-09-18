@@ -2,5 +2,3 @@
 - Research Temporal
 - Front-end playground enhancement
 
-
-disc
