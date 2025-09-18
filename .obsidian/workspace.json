@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux File System.md",
+                "file": "Temp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux File System"
+              "title": "Temp"
             }
           }
         ]
@@ -195,6 +195,7 @@
   "active": "2c48c3b56bcd5e3f",
   "lastOpenFiles": [
     "Linux File System.md",
+    "Temp.md",
     "Research Topics.md",
     "EL Data Pipelines.md",
     "Airbyte.md",
