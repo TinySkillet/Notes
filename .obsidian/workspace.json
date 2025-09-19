@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -192,7 +191,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "82c1b9f71f0b209e",
+  "active": "38340ba2cff945bb",
   "lastOpenFiles": [
     "Linux File System.md",
     "Temp.md",
