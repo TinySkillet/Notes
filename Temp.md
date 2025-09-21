@@ -14,6 +14,7 @@
 8. Database engine is now configured with a connection pool to improve performance and manage database connections efficiently. 
 
 
+
 ---
 
 
@@ -22,10 +23,12 @@ Rijan Acharya
 Samundra Magar
 
 
-
 C is a procedural language. Everything happens steps by steps through functions. Data is stored in array, and whenever we need to modify data outside the function, we can use pointers or references.
 
 If we need to store large amount of data, we allocate memory on the heap and use a pointer to reference and store the data into that memory.
 
 Code reusabiliity can be done through structs, header files, functions.
 
+---
+
+OOP solves issues of resuability and scalability by grouping closely related data and functions into a single data structure called class. Further inheritance lets you to reuse code   
