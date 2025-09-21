@@ -33,6 +33,7 @@ Code reusability can be done through structs, header files, functions.
 
 **OOP** solves issues of reusability and scalability by grouping closely related data and functions into a single data structure called class. Further inheritance lets you to reuse data & functionalities from another classes. 
 
+Security - private, public, protected methods and properties
+Large programs - chain of inheritances, association
 
-
-Security - private, public void methods and properties
+Classes - programmatic model of something 
