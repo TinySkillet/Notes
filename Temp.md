@@ -12,3 +12,8 @@
 6. Knowledge base name can include any characters now. Previously it used to have validation (not include spaces, hyphens). Knowledge base name that Bedrock requires is auto generated using *nanoID* library. 
 7. The collection names (postgres table, milvus collection) is also auto generated and configured using *nanoID*.  
 8. Database engine is now configured with a connection pool to improve performance and manage database connections efficiently. 
+
+
+
+Rijan Acharya
+Samundra Magar
