@@ -17,3 +17,7 @@
 
 Rijan Acharya
 Samundra Magar
+
+
+
+C is a procedural language. Everything happens steps by steps through functions.  
