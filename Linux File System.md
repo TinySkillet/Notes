@@ -2,6 +2,7 @@
 
 **'/'** is the main directory that contains everything in Linux. 
 
+
 #### 1. bin
    bin contains the basic binaries, which are basically applications. *ls, cat* are actually stored here. 
 
