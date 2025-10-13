@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "28853f3cb7ebda04",
+        "id": "0d6a97c7c93925e8",
         "type": "tabs",
         "children": [
           {
-            "id": "becf58dda44e9528",
+            "id": "274433940108e928",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "RAG/What is RAG?.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "What is RAG?"
             }
           }
         ]
@@ -172,7 +176,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,8 +192,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "becf58dda44e9528",
+  "active": "274433940108e928",
   "lastOpenFiles": [
+    "Untitled.md",
+    "RAG/What is RAG?.md",
+    "RAG",
     "Linux File System.md",
     "Packages Linux.md",
     "JSON KB in RAG.md",
