@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RAG/Inverted Index.md",
+                "file": "Research Topics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Inverted Index"
+              "title": "Research Topics"
             }
           }
         ]
@@ -194,14 +194,16 @@
   },
   "active": "274433940108e928",
   "lastOpenFiles": [
-    "Untitled.md",
+    "Research - KB.md",
+    "Packages Linux.md",
+    "Linux File System.md",
+    "JSON KB in RAG.md",
+    "Entropy.md",
     "RAG/Inverted Index.md",
+    "Data Source Connector",
+    "Untitled.md",
     "RAG/What is RAG?.md",
     "RAG",
-    "Linux File System.md",
-    "Packages Linux.md",
-    "JSON KB in RAG.md",
-    "Research - KB.md",
     "Research Topics.md",
     "Temp.md",
     "EL Data Pipelines.md",

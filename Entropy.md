@@ -29,7 +29,6 @@ $$
 \log_b(a) = \frac{\log_k(a)}{\log_k(b)}
 $$
 
-
 Example:
 $$
 \log_8(24) = \frac{\log_2(24)}{\log_2(8)}
