@@ -1,6 +1,15 @@
 # Research Guide: Building a Data Source Connector Management System
 
   
+
+This guide outlines the key areas of research and technologies to explore for building a feature that allows content managers to configure and manage data source connectors, starting with Postgres.
+
+  
+
+---
+
+  
+
 ### Phase 1: Backend API Development (The Core Logic)
 
   
@@ -55,7 +64,11 @@ The first step is to build the API that will handle the configuration of data so
 
 - **`psycopg2` / `psycopg` (v3)**: The standard Postgres driver for Python. Understand its connection parameters (`dsn`). `psycopg` offers better support for modern Python features like async.
 
-   
+  
+
+---
+
+  
 
 ### Phase 2: Data Ingestion Pipeline
 
@@ -178,3 +191,57 @@ You will be storing sensitive database credentials. This is the most critical pa
 - **Network Security:**
 
 - Advise users on the importance of firewall rules to ensure only your application's server can connect to their database port.
+
+  
+
+---
+
+  
+
+### Phase 5: Supporting Multiple Databases (Future-Proofing)
+
+  
+
+To avoid writing completely custom code for every new database, you can use tools that provide a layer of abstraction.
+
+  
+
+**1. SQLAlchemy (The Incumbent Solution):**
+
+- **Concept:** SQLAlchemy is not just an ORM; it's a database abstraction toolkit. Its Core component uses a "dialect" system to communicate with various database backends (Postgres, MySQL, SQLite, Oracle, MS-SQL, etc.) using the same Python code.
+
+- **Research Topics:**
+
+- **SQLAlchemy Dialects:** Understand how dialects work. For each new database (e.g., MySQL), you would install a new driver (`mysqlclient` or `PyMySQL`) and change the connection string (e.g., `mysql+pymysql://...`). The rest of your data-fetching code using SQLAlchemy Core can remain largely the same.
+
+- **Connection URL format:** Learn the structure of the connection URLs for different backends. Your `DataSourceConnector` model would store these components, and your code would build the appropriate URL at runtime.
+
+  
+
+**2. Singer.io (Open-Source Standard for Data Integration):**
+
+- **Concept:** Singer is not a platform but a specification for how data extraction scripts (called **Taps**) and data loading scripts (called **Targets**) should communicate using JSON. By adhering to this standard, you can mix and match any source with any destination.
+
+- **Why it's relevant:** Instead of writing your own connector logic, you could integrate existing open-source Taps. There are Taps for almost every popular database and SaaS application.
+
+- **Research Topics:**
+
+- **Singer Taps:** Search for pre-built Taps for sources you might support in the future (e.g., `tap-postgres`, `tap-mysql`, `tap-salesforce`).
+
+- **Running a Tap:** Learn how a Singer Tap is invoked. It requires a `config.json` (with credentials) and a `catalog.json` (to select data streams/tables). Your application would be responsible for generating these files and then executing the Tap as a subprocess.
+
+  
+
+**3. Airbyte / Meltano (Data Integration Platforms):**
+
+- **Concept:** These are open-source platforms that are built on the principles of Singer (or are compatible with it). They provide a UI, API, and scheduling for managing a vast library of pre-built connectors.
+
+- **Why it's relevant:** This approach involves offloading the connector logic entirely to a dedicated, battle-tested platform. Your application would interact with the Airbyte/Meltano API instead of the end-database.
+
+- **Research Topics:**
+
+- **Airbyte API:** Explore the Airbyte API for programmatically configuring a new source, selecting streams (tables), and triggering a sync. Your UI would become a "frontend" for the Airbyte API.
+
+- **Meltano:** Meltano is a "DataOps OS" that is more focused on being a CLI-first tool for developers to manage Singer taps and targets within their own projects. It's highly extensible.
+
+- **Trade-offs:** This approach adds another service to your architecture, which increases operational complexity. However, it dramatically accelerates your ability to support hundreds of different data sources.
