@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Data Source Connector/Guide from gemini.md",
+                "file": "Data Source Connector/Guide from Gemini.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Guide from gemini"
+              "title": "Guide from Gemini"
             }
           }
         ]
@@ -192,10 +192,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "38340ba2cff945bb",
+  "active": "274433940108e928",
   "lastOpenFiles": [
     "Research Topics.md",
-    "Data Source Connector/Guide from gemini.md",
+    "Data Source Connector/Guide from Gemini.md",
     "Research - KB.md",
     "Packages Linux.md",
     "Linux File System.md",
