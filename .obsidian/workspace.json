@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research Topics.md",
+                "file": "Data Source Connector/Guide from gemini.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Research Topics"
+              "title": "Guide from gemini"
             }
           }
         ]
@@ -192,8 +192,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "274433940108e928",
+  "active": "38340ba2cff945bb",
   "lastOpenFiles": [
+    "Research Topics.md",
+    "Data Source Connector/Guide from gemini.md",
     "Research - KB.md",
     "Packages Linux.md",
     "Linux File System.md",
@@ -204,7 +206,6 @@
     "Untitled.md",
     "RAG/What is RAG?.md",
     "RAG",
-    "Research Topics.md",
     "Temp.md",
     "EL Data Pipelines.md",
     "Airbyte.md",
