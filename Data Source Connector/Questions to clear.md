@@ -5,4 +5,3 @@
 3. Looked into DLT library in Python. It can load data from REST APIs, 30 + SQL databases, S3, Google Cloud, Google Drive, local file system, remote file system, Azure Blob.
 
 - https://dlthub.com/docs
-- 
