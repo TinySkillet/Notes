@@ -7,10 +7,10 @@
 - https://dlthub.com/docs
 
 
-agent le call garcha
+Agent le call garcha
 
-continuous change detection (CDC)
+Need to implement Continuous Change Detection (CDC) on the database
 
-user should choose which table needs to be ingested. agent can decide which column to be ingested
+User should be able to choose which table needs to be ingested. agent (I guess user for now) can decide which column to be ingested
 
 
