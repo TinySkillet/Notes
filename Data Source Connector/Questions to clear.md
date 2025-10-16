@@ -5,3 +5,12 @@
 3. Looked into DLT library in Python. It can load data from REST APIs, 30 + SQL databases, S3, Google Cloud, Google Drive, local file system, remote file system, Azure Blob.
 
 - https://dlthub.com/docs
+
+
+agent le call garcha
+
+continuous change detection (CDC)
+
+user should choose which table needs to be ingested. agent can decide which column to be ingested
+
+
