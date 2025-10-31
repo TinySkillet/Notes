@@ -62,7 +62,6 @@ The location of this directory ensures that root always has access to its home f
 #### 11. srv
 **srv** is the service directory where service data is stored. If you run a `HTTP` or a `FTP` server, you will store the files that will be accessed by external users here.
 
-
 #### 12. sys
 **sys** is the way to interact with the kernel. This directory is similar to run directory. It is similar to the run directory and it's not physically written to the disk. It's created everytime the system boots up.
 

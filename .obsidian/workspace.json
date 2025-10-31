@@ -208,6 +208,8 @@
   },
   "active": "00892b940a8a378a",
   "lastOpenFiles": [
+    "Research Topics.md",
+    "Linux File System.md",
     "FastAPI Best Practices.md",
     "Entropy.md",
     "Research - KB.md",
@@ -222,8 +224,6 @@
     "Images/image-2.png",
     "JSON KB in RAG.md",
     "Packages Linux.md",
-    "Linux File System.md",
-    "Research Topics.md",
     "Data Source Connector/High Level Architecture.md",
     "Data Source Connector/Questions to clear.md",
     "RAG/What is RAG?.md",
