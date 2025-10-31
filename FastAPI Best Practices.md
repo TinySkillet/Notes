@@ -50,7 +50,7 @@ def endpoint():
 > [!NOTE] 
 > FASTAPI is designed to recognize that we are performing blocking operations within these `def` endpoints, and **it will intelligently run them in separate threads**. This way our application remains responsive. 
 
-![[image.png|477x258]]
+![[image.png|531x287]]
 
 
 #### 2. Use `async` friendly code.
@@ -95,11 +95,11 @@ But for heavier ML models, **use dedicated inference engines** like Triton, Torc
 ![[image-1.png|504x227]]
 
 
-For truely, long running computations, use a **Queue + Worker** system.
+For truly long running computations, use a **Queue + Worker** system.
 
-![[image-2.png|518x218]]
+![[image-2.png|541x228]]
 
-When client sends a request to FastAPI, FastAPI **enqueues** a job to a **message broker** like *RabbitMQ*. A separate worker, e.g., *Celery* p**ulls the job from the queue**, **runs** the heavy computation, and **stores the result** in the database. 
+When client sends a request to FastAPI, FastAPI **enqueues** a job to a **message broker** like *RabbitMQ*. A separate worker, e.g., *Celery* **pulls the job from the queue**, **runs** the heavy computation, and **stores the result** in the database. 
 
 
 #### 4. Follow the same rules in FastAPI Dependencies.
@@ -109,7 +109,7 @@ When client sends a request to FastAPI, FastAPI **enqueues** a job to a **messag
 - Do not perform any heavy computation inside your dependency.
 
 
-#### 4. Don't make your users wait
+#### 5. Don't make your users wait
 
 When you have operations that don't need to block the client from getting a response, things like **sending a confirmation email** or logging event, you should avoid making the client wait by doing it in the endpoint.
 
@@ -148,8 +148,9 @@ However, it is crucial to understand the limitations. **Don't use** background t
 > [!NOTE] Remember
 > Background tasks are not guaranteed!
 > 
-> If your FastAPI process crashes before a background task completes, that task will fail.
-
+> If your FastAPI process crashes before a background task completes, that task will fail. No retries.
 
  For those more robust needs,  a dedicated **message queue** and **worker system** (like Celery) is still the superior choice. 
+
+
 
