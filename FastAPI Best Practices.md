@@ -206,4 +206,28 @@ If you've set a `response_model`, there's no performance benefit to creating tha
 ![[image-4.png|475x207]]
 
 
-It first converts your return value to a dictionary or a list, validates it against the `response_model` 
+![[image-5.png|367x297]]
+
+It first converts your return value to a dictionary or a list, validates it against the `response_model` , and then encodes it to JSON. **Just return a plain dictionary, and let FastAPI take care of the rest.**
+
+
+```python
+@ap.get("/user", response_model=UserOut)
+async def get_user():
+	...
+	return UserOut(**user_data)
+
+# No performance benefit
+```
+
+```python
+@app.get("/user", respones_model=UserOut)
+async def get_user():
+	...
+	return user_data
+
+# Let FastAPI handle the response
+```
+
+
+
