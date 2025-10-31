@@ -153,4 +153,22 @@ However, it is crucial to understand the limitations. **Don't use** background t
  For those more robust needs,  a dedicated **message queue** and **worker system** (like Celery) is still the superior choice. 
 
 
+#### 6. Disable Swagger and ReDoc in Production
+FastAPI automatically generates these docs which is great during development. But in production they can expose endpoints that might still be incomplete or lack proper  security. 
 
+To prevent this, make sure to set `docs_url`, `redoc_url` and `openapi_url` to `None` in your production settings.
+
+```python
+app = FastAPI(
+	docs_url = None if PRODUCTION else "/docs",
+	redoc_url = None if PRODUCTION else "/redoc",
+	openapi_url = None if PRODUCTION else "/openapi.json",
+)
+```
+
+#### 7. Create a custom Pydantic BaseModel
+
+```python
+class CustomBaseModel(BaseModel):
+.
+```
