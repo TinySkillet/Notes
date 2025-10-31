@@ -361,6 +361,24 @@ app = FastAPI(lifespan=lifespan)
 
 Keep them in a `.env` file. Make sure you add `.env` to your `.gitignore`.
 
-Avoid using `os.envi`
+Avoid using `os.environ[]` all over your codebase. It gets messy fast. A better approach is to centralize everything in a config class, like Pydantic's `BaseSettings`  class. 
+
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+	db_url: str
+	api_key: str
+	debug: bool
+	
+settings = Settings()
+```
 
 
+> [!NOTE]  
+It validates all your environment variables upfront. If something's missing or misconfigured, it fails early right when the server starts, and it makes switching between development and production environments a lot smoother.
+
+
+#### 14. Use structured logging
+
+It's highly recommended to use Python's built in `logging` library pair
