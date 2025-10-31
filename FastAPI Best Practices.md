@@ -292,7 +292,7 @@ You should use a connection pool and access these connections through dependency
 
 There are two common ways to do this. 
 
-The first one is storing the db connections pool in the app state.
+The **first one** is storing the db connections pool in the app state.
 
 ```python
 async def lifespan(app):
@@ -301,6 +301,35 @@ async def lifespan(app):
 	await app.state.pool.close()
 	
 	
-async def get_conn(request: Re)
+async def get_conn(request: Request):
+	async with request.app.state.pool.acquire() as conn:
+		yield conn
+		
+
+@app.get("")
+async def endpoint(db_conn = Depends(get_conn)):
+	...
 ```
+
+- Initialize the connection pool within the lifespan function.
+- Store it in the app.state.
+- After that create a dependency that retrieves a connection from this pool. You will typically use an `async with` block to ensure the conneciton is properly released.
+
+
+**Second** is the legacy **global-style pool**. This approach involves defining the connection pool as a global variable and populating it during the app's lifespan event.
+
+```python
+pool = None
+
+async def lifespan(app):
+	global pool
+	pool = await create_pool()
+```
+
+
+> [!NOTE] Note
+> While the first method is the recommended approach, you will still come across the global pool style in man
+
+
+
 
