@@ -244,4 +244,36 @@ Push as much validation and structure definition as possible into your Pydantic 
 If Pydantic does not support the validation you need, don't write it inside the endpoint function - add custom validation logic directly inside the model instead.
 
 
-#### 10. Validate with Pydantic, Not in endpoint
+#### 10. Use dependencies for DB-based validation
+
+If your validation logic requires a database query,  like checking whether a resource belongs to the current user before allowing changes, don't put that logic directly in your endpoint.
+
+```python
+# DONT DO THIS
+@app.put("posts/{post_id}")
+async def update_post(...):
+	post = await db.get(post_id)
+	if post.user_id != current_user.id:
+		raise HTTPExceptoin(...)
+```
+
+```python
+# INSTEAD use dependency injection
+async def validate_owner(
+	post_id: int,
+	user = Depends(get_user)
+): 
+	post = await db.get(post_id)
+	if post.user_id != user.id:
+		raise HTTPException(403)
+	return post
+
+
+
+@app.put("posts/{post_id}")
+async def update_post(
+	post = Depends(validate_owner)
+):
+	...
+```
+
