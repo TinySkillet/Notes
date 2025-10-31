@@ -230,4 +230,21 @@ async def get_user():
 ```
 
 
+#### 8. Validate with Pydantic, Not in endpoints
+
+Push as much validation and structure definition as possible into your Pydantic model. **That's what they're built for.**
+
+
+> [!NOTE] Important
+> Don't scatter validation across your route functions with if statements and manual checks. It might seem easier at first, but it quickly turns into a mess. You lose consistent error responses, and clients get cryptic 400s with no clue why their request failed.
+> 
+> You end up repeating the same logic in multiple places. And the worst part, your OpenAPI docs won't reflect any of that hidden validation.
+
+
+If Pydantic does not support the validation you need, don't write it inside the endpoint function - add custom validation logic directly inside the model instead.
+
+
+
+
+
 
