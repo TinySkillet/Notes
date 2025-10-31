@@ -27,7 +27,6 @@ MongoClient().db.collection.find_one()
 > **are blocking operations.**
 
 
-
 #### IMPORTANT
 **FAST API** runs endpoint functions defined with `async def` in the **main thread**. If we put blocking operations within `async def` , our application will become unresponsive! It won't be able to process other requests until that blocking operation finishes.
 
@@ -45,7 +44,6 @@ async def endpoint():
 def endpoint():
 	time.sleep(10)
 ```
-
 
 
 > [!NOTE] 
@@ -91,4 +89,16 @@ Avoid processing images, videos or running heavy machine learning models directl
 **What should you do then?**
 If your ML model is lightweight and inferences fast (under < 100ms, low traffic) then you can get away with using FASTAPI directly. 
 
-But for heavier ML models, **use dedicated inference engines** like Triton, TorchServe etc, and use FASTAPI to validate inputs and route the reque
+But for heavier ML models, **use dedicated inference engines** like Triton, TorchServe etc, and use FASTAPI to validate inputs and route the requests.  
+
+![[image-1.png|504x227]]
+
+
+For truely, long running computations, use a **Queue + Worker** system.
+
+![[image-2.png|518x218]]
+
+When client sends a request to FastAPI, FastAPI **enqueues** a job to a **message broker** like *RabbitMQ*. A separate worker, e.g., *Celery* p**ulls the job from the queue**, **runs** the heavy computation, and **stores the result** in the database. 
+
+
+#### 4. Follow the same ru
