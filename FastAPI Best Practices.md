@@ -101,4 +101,19 @@ For truely, long running computations, use a **Queue + Worker** system.
 When client sends a request to FastAPI, FastAPI **enqueues** a job to a **message broker** like *RabbitMQ*. A separate worker, e.g., *Celery* p**ulls the job from the queue**, **runs** the heavy computation, and **stores the result** in the database. 
 
 
-#### 4. Follow the same ru
+#### 4. Follow the same rules in FastAPI Dependencies.
+
+- Define your dependency with `def` if you're doing any blocking operation inside.
+- Use `async def` if it's light, CPU-bound, and entirely non-blocking. 
+- Do not perform any heavy computation inside your dependency.
+
+
+#### 4. Don't make your users wait
+
+When you have operations that don't need to block the client from getting a response, things like **sending a confirmation email** or logging event, you should avoid making the client wait by doing it in the endpoint.
+
+```python
+@app.post("/register")
+async def register_user(user_data: UserCreate):
+	await send_email(user_data.email)
+```
