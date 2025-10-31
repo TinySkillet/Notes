@@ -168,7 +168,7 @@ app = FastAPI(
 
 #### 7. Create a custom Pydantic BaseModel
 
-Create a custom base model and use it to define your `Pydantic` models. 
+Create a custom base model and use it to define your `Pydantic` models55. 
 
 ```python
 class CustomBaseModel(BaseModel):
