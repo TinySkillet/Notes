@@ -244,5 +244,4 @@ Push as much validation and structure definition as possible into your Pydantic 
 If Pydantic does not support the validation you need, don't write it inside the endpoint function - add custom validation logic directly inside the model instead.
 
 
-Continuing this files 
 
