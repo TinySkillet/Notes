@@ -50,7 +50,7 @@ def endpoint():
 > [!NOTE] 
 > FASTAPI is designed to recognize that we are performing blocking operations within these `def` endpoints, and **it will intelligently run them in separate threads**. This way our application remains responsive. 
 
-![[image.png|531x287]]
+![[image.png|227x299]]
 
 
 #### 2. Use `async` friendly code.
@@ -257,6 +257,9 @@ async def update_post(...):
 		raise HTTPExceptoin(...)
 ```
 
+
+Instead create a **dependency** and use it.
+
 ```python
 # INSTEAD use dependency injection
 async def validate_owner(
@@ -269,11 +272,35 @@ async def validate_owner(
 	return post
 
 
-
 @app.put("posts/{post_id}")
 async def update_post(
 	post = Depends(validate_owner)
 ):
 	...
+```
+
+The first benefit is that you can easily reuse the dependency across multiple endpoints with just a single  line of code.
+
+Second, there's no performance hit either. **FastAPI caches dependencies per request**, your dependency will be evaluated once in a request.  It is efficient and helps to keep your endpoint clean.
+
+
+#### 11. Avoid creating a new DB connection in every endpoint.
+
+You should use a connection pool and access these connections through dependency injection.
+
+![[image.png|227x299]]
+
+There are two common ways to do this. 
+
+The first one is storing the db connections pool in the app state.
+
+```python
+async def lifespan(app):
+	app.state.pool = await create_pool()
+	yield
+	await app.state.pool.close()
+	
+	
+async def get_conn(request: Re)
 ```
 
