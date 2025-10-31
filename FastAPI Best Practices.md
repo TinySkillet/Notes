@@ -6,7 +6,7 @@ Blocking operations are tasks that make your program wait until they are finishe
 E.g. 1
 ```python
 print("Start")
-time.Sleep(10)
+time.sleep(10)
 next_task()
 ```
 
@@ -128,7 +128,7 @@ Instead, use FastAPI's built in **BackgroundTasks**. They are perfect for small,
 
 ```python
 @app.post("/register")
-async def register_uesr(user_data: UserCreate, bg_tasks: BackgroundTasks):
+async def register_user(user_data: UserCreate, bg_tasks: BackgroundTasks):
 	...
 	bg_tasks.add_task(send_email, user_data.email)
 	bg_tasks.add_task(event_user_registered, user_data.email)
@@ -195,4 +195,15 @@ class CustomBaseModel(BaseModel):
 ```
 
 Another common use case is **simplifying JSON encoding** when returning data. If you try to return a datetime or Decimal object, you'll get an encoding error. So, define your encoders globally. 
+
 You can format `datetime` objects as `string`, convert `Decimal` to `float`, and if you're working with MongoDB - convert `ObjectId` instances to `string`.
+
+
+#### 8. Don't manually construct response models in your FastAPI endpoints
+
+If you've set a `response_model`, there's no performance benefit to creating that model yourself just to return it. **FastAPI will do it anyway.**
+
+![[image-4.png|475x207]]
+
+
+It first converts your return value to a dictionary or a list, validates it against the `response_model` 
