@@ -113,7 +113,23 @@ When client sends a request to FastAPI, FastAPI **enqueues** a job to a **messag
 When you have operations that don't need to block the client from getting a response, things like **sending a confirmation email** or logging event, you should avoid making the client wait by doing it in the endpoint.
 
 ```python
+# don't do this
+
 @app.post("/register")
 async def register_user(user_data: UserCreate):
 	await send_email(user_data.email)
+	await event_user_registered(user_data.email)
+	return {"message": "OK"}
 ```
+
+
+Instead, use FastAPI's built in **BackgroundTasks**. They are perfect for small, non-critical, fire and forget tasks. 
+
+
+> [!NOTE] Important
+> 
+Since these background tasks run within the same event loop as your main application, you will want to follow the same rules for deciding between `async def` and `def`.
+
+However, it is crucial to understand the limitations. **Don't use** background tasks for anything **requiring guarantee delivery, retries** or **tasks** that run for **long duration**.
+
+Back
