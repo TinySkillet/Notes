@@ -74,4 +74,21 @@ async def endpoint():
 		await client.get(url)
 		
 	client = AsyncIOMotorClient()
+	await client.db.collection.find_one()
 ```
+
+
+
+### 3. Avoid heavy computation in endpoints
+
+It blocks the server - just like blocking operations.
+
+> [!NOTE] Design
+> FASTAPI is desinged for I/O - bound workloads, not for CPU/GPU heavy tasks.
+
+Avoid processing images, videos or running heavy machine learning models directly in your endpoints. 
+
+**What should you do then?**
+If your ML model is lightweight and inferences fast (under < 100ms, low traffic) then you can get away with using FASTAPI directly. 
+
+But for heavier ML models, **use dedicated inference engines** like Triton, TorchServe etc, and use FASTAPI to validate inputs and route the reque
