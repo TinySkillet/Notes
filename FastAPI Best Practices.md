@@ -50,7 +50,7 @@ def endpoint():
 > [!NOTE] 
 > FASTAPI is designed to recognize that we are performing blocking operations within these `def` endpoints, and **it will intelligently run them in separate threads**. This way our application remains responsive. 
 
-![[image.png|227x299]]
+![[image.png|552x299]]
 
 
 #### 2. Use `async` friendly code.
@@ -92,7 +92,7 @@ If your ML model is lightweight and inferences fast (under < 100ms, low traffic)
 
 But for heavier ML models, **use dedicated inference engines** like Triton, TorchServe etc, and use FASTAPI to validate inputs and route the requests.  
 
-![[image-1.png|504x227]]
+![[image-1.png|326x112]]
 
 
 For truly long running computations, use a **Queue + Worker** system.
@@ -288,7 +288,7 @@ Second, there's no performance hit either. **FastAPI caches dependencies per req
 
 You should use a connection pool and access these connections through dependency injection.
 
-![[image.png|227x299]]
+![[image.png|552x299]]
 
 There are two common ways to do this. 
 
@@ -328,7 +328,37 @@ async def lifespan(app):
 
 
 > [!NOTE] Note
-> While the first method is the recommended approach, you will still come across the global pool style in man
+> While the first method is the recommended approach, you will still come across the global style pool in many existing codebases. 
+
+
+
+#### 12. Use the new lifespan event for managing app level resources
+
+It's better to use FastAPI's newer lifespan feature instead of the older `@app.on_event("startup")` and  `@app.on_event("shutdown")` decorators.
+
+```python
+# OLD WAY
+
+@app.on_event("startup")
+def setup():...
+
+
+@app.on_event("shutdown")
+def cleanup():...
+
+
+# NEW WAY
+
+async def lifespan(app):
+	...      # <- DB, Redis, etc.
+	yield    # <- App runs here
+	...      # <- Close all resources
+	
+app = FastAPI(lifespan=lifespan)
+```
+
+
+
 
 
 
