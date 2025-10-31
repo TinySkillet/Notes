@@ -395,7 +395,26 @@ These libraries allow you to assign a criticality to your logs. This is incredib
 A very useful practice is to add contextual information to each log, such as `requestID`.
 
 ```python
-class LogginMiddl
+class LogginMiddleware(BaseHTTPMiddleware):
+
+	async def dispatch(self, request: Request, call_next):
+		# bind contextual info to structlog
+		structlog.contextvars.clear_contextvars()
+		structlog.contextvars.bind_contextvars(
+			request_id = str(uuid.uuid4()),
+		)
+		logger.info("request_received"
+			method = request.method,
+			path = request.url.path,
+		)
+		response = await call_next(request)
+		logger.info("request_completed",
+			status_code = response.status_code
+		)
+		return response
+		
+app.add_middleware(LoggingMiddleware)
 ```
+
 
 
