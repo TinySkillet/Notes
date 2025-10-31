@@ -230,7 +230,7 @@ async def get_user():
 ```
 
 
-#### 8. Validate with Pydantic, Not in endpoints
+#### 9. Validate with Pydantic, Not in endpoints
 
 Push as much validation and structure definition as possible into your Pydantic model. **That's what they're built for.**
 
