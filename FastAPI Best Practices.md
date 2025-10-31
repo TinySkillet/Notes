@@ -287,9 +287,6 @@ Second, there's no performance hit either. **FastAPI caches dependencies per req
 #### 11. Avoid creating a new DB connection in every endpoint.
 
 You should use a connection pool and access these connections through dependency injection.
-
-![[image.png|552x299]]
-
 There are two common ways to do this. 
 
 The **first one** is storing the db connections pool in the app state.
@@ -357,9 +354,13 @@ async def lifespan(app):
 app = FastAPI(lifespan=lifespan)
 ```
 
+`lifespan` gives you a single, unified context to handle setup - like initializing database connections, cache clients or starting background tasks - and cleanup when the app shuts down.
 
 
+#### 13. Don't hardcore secrets.
 
+Keep them in a `.env` file. Make sure you add `.env` to your `.gitignore`.
 
+Avoid using `os.envi`
 
 
