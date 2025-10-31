@@ -438,4 +438,28 @@ async def hello():
 
 #### 15. Deployment Best Practices
 
-For local development, Uvicorn on its own is fine. However, when you move to a production environment, you should run Uvicorn with Gunicorn, specifically using the `UvicornWorker` class.
+For local development, **Uvicorn** on its own is fine. However, when you move to a production environment, you should run Uvicorn with **Gunicorn**, specifically using the `UvicornWorker` class.
+
+```python
+# Development
+uviron main:app --reload
+
+# Production
+gunicorn main:app ... --worker-class uvicorn.workers.UvicornWorker
+```
+
+
+Make sure to install `uvloop` in your Virtual environment. **FastAPI will automatically detect** and use `uvloop` instead of the default `asyncio` event loop, which can provide a **significant** performance boost.
+
+FInally, you'll want to tune the no of workers to match you server's CPU. A common starting point is to set workers equal to (CPU cores * 2) + 1. 
+
+However, this isn't a hard and fast rule; you should experiment and benchmark to find the optimal number.
+
+```python
+gunicorn main:app
+	--workers <workers count>
+	--worker-class uvicorn.workers.UvicornWorker
+	--bind 0.0.0.0:8000
+```
+
+If you're looking to scale your application further, consider containerizing it using **Docker**.
