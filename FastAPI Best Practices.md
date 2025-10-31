@@ -18,10 +18,32 @@ requests.get("https://api.com")
 MongoClient().db.collection.find_one()
 ```
 
-Reading from or writing to file,
-Making HTTP request with libraries like request,
-Database queries using synchronous clients  
 
-are blocking operations.
+> [!NOTE] Blocking Operations
+> Reading from or Writing to a file,
+> Making HTTP requests with libraries like request,
+> Running database queries using synchronous clients
+> 
+> **are blocking operations.**
+
+
+
+#### IMPORTANT
+**FAST API** runs endpoint functions defined with `async def` in the **main thread**. If we put blocking operations within `async def` , our application will become unresponsive! It won't be able to process other requests until that blocking operation finishes.
+
+**The solution**? Just define these functions using the `def` keyword.
+
+```python
+# BAD
+@app.get("/")
+async def endpoint():
+	time.sleep(10)
+```
+
+```python
+# GOOD
+def endpoint():
+	time.sleep(10)
+```
 
 
