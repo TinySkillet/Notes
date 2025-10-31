@@ -25,14 +25,12 @@
             "id": "deb21d49bd08c89d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "FastAPI Best Practices.md",
-                "mode": "source",
-                "source": false
+                "file": "image-1.png"
               },
-              "icon": "lucide-file",
-              "title": "FastAPI Best Practices"
+              "icon": "lucide-image",
+              "title": "image-1"
             }
           }
         ],
@@ -210,13 +208,14 @@
   "active": "deb21d49bd08c89d",
   "lastOpenFiles": [
     "image-5.png",
+    "Untitled",
     "image-4.png",
     "image-3.png",
     "image-2.png",
     "image-1.png",
     "image.png",
-    "Airbyte.md",
     "FastAPI Best Practices.md",
+    "Airbyte.md",
     "EL Data Pipelines.md",
     "Entropy.md",
     "JSON KB in RAG.md",
