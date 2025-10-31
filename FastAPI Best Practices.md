@@ -381,4 +381,21 @@ It validates all your environment variables upfront. If something's missing or m
 
 #### 14. Use structured logging
 
-It's highly recommended to use Python's built in `logging` library pair
+It's highly recommended to use Python's built in `logging` library paired with `loguru` or `structlog`.
+
+These libraries allow you to assign a criticality to your logs. This is incredibly useful when you're running your application.
+
+
+> [!NOTE] LOG Levels
+> Depending on the environment or production, you can set the log level. For example, you might set it to `DEBUG` or `INFO` or `ERROR`, which gives you fine-grained control over what messages you see.
+> ```python
+> LOG_LEVEL = logging.DEBUG if ENV == "development" else logging.INFO
+> ```
+
+A very useful practice is to add contextual information to each log, such as `requestID`.
+
+```python
+class LogginMiddl
+```
+
+
