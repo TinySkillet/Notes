@@ -168,7 +168,31 @@ app = FastAPI(
 
 #### 7. Create a custom Pydantic BaseModel
 
+Create a custom base model and use it to define your `Pydantic` models. 
+
 ```python
 class CustomBaseModel(BaseModel):
-.
+	...
+	
+	
+class UserSchema(CustomBaseModel):
+	...
 ```
+
+The benefit is that it's easier to manage your global configuration in one place.
+For example, if you want to return camelCase to the frontend but prefer snake_case in Python, you can set an alias generator to handle that.
+
+```python
+class CustomBaseModel(BaseModel):
+	class Config:
+		alias_generator = to_camel
+		populate_by_name = True
+		json_encoders = {
+			datetime: datetime.isoformat,
+			Decimal: float,
+			ObjectId: str,
+		}
+```
+
+Another common use case is **simplifying JSON encoding** when returning data. If you try to return a datetime or Decimal object, you'll get an encoding error. So, define your encoders globally. 
+You can format `datetime` objects as `string`, convert `Decimal` to `float`, and if you're working with MongoDB - convert `ObjectId` instances to `string`.
