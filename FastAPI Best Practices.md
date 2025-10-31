@@ -41,6 +41,7 @@ async def endpoint():
 
 ```python
 # GOOD
+@app.get("/")
 def endpoint():
 	time.sleep(10)
 ```
@@ -125,11 +126,30 @@ async def register_user(user_data: UserCreate):
 
 Instead, use FastAPI's built in **BackgroundTasks**. They are perfect for small, non-critical, fire and forget tasks. 
 
+```python
+@app.post("/register")
+async def register_uesr(user_data: UserCreate, bg_tasks: BackgroundTasks):
+	...
+	bg_tasks.add_task(send_email, user_data.email)
+	bg_tasks.add_task(event_user_registered, user_data.email)
+	return {"message": "OK"}
+```
+
 
 > [!NOTE] Important
 > 
 Since these background tasks run within the same event loop as your main application, you will want to follow the same rules for deciding between `async def` and `def`.
 
+![[image-3.png|597x88]]
+
+
 However, it is crucial to understand the limitations. **Don't use** background tasks for anything **requiring guarantee delivery, retries** or **tasks** that run for **long duration**.
 
-Back
+> [!NOTE] Remember
+> Background tasks are not guaranteed!
+> 
+> If your FastAPI process crashes before a background task completes, that task will fail.
+
+
+ For those more robust needs,  a dedicated **message queue** and **worker system** (like Celery) is still the superior choice. 
+
