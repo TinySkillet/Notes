@@ -416,5 +416,26 @@ class LogginMiddleware(BaseHTTPMiddleware):
 app.add_middleware(LoggingMiddleware)
 ```
 
+These context variables safely pass request-specific data across asynchronous calls.
+Then within  your logger configuration, you can configure it to include to include the context variables, time, log level, and  the actual message.
+
+```python
+structlog.configure(
+	processors = [
+		merge_contextvars,
+		TimeStamper(fmt="iso")
+		add_log_level,
+		JSONRenderer(),
+	],
+)
+
+@app.get("/hello")
+async def hello():
+	logger.info("Inside_hello_handler)
+	return {"message": "Hello, world"}
+```
 
 
+#### 15. Deployment Best Practices
+
+For local development, Uvicorn on its own is fine. However, when you move to a production environment, you should run Uvicorn with Gunicorn, specifically using the `UvicornWorker` class.
