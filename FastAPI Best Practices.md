@@ -47,3 +47,31 @@ def endpoint():
 ```
 
 
+
+> [!NOTE] 
+> FASTAPI is designed to recognize that we are performing blocking operations within these `def` endpoints, and **it will intelligently run them in separate threads**. This way our application remains responsive. 
+
+![[image.png|477x258]]
+
+
+#### 2. Use `async` friendly code.
+
+Non-blocking means more requests can be handled concurrently.
+
+```python
+async def endpoint():
+	# use non-blocking code
+	...
+```
+
+Use non-blocking libraries as much as possible.
+
+```python
+async def endpoint():
+	await asyncio.sleep(1)
+	
+	async with httpx.AsyncClient() as client:
+		await client.get(url)
+		
+	client = AsyncIOMotorClient()
+```
