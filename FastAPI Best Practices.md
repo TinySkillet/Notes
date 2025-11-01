@@ -182,7 +182,9 @@ class UserSchema(CustomBaseModel):
 The benefit is that it's easier to manage your global configuration in one place.
 For example, if you want to return camelCase to the frontend but prefer snake_case in Python, you can set an alias generator to handle that.
 
+  
 ```python
+# This is the Pydantic v1 way of doing it
 class CustomBaseModel(BaseModel):
 	class Config:
 		alias_generator = to_camel
@@ -192,6 +194,17 @@ class CustomBaseModel(BaseModel):
 			Decimal: float,
 			ObjectId: str,
 		}
+		
+		
+# Pydantic v2 of way of doing it
+class CustomBaseModel(BaseModel):
+	model_config = ConfigDict(
+		alias_generator=to_camel,
+		populate_by_name=True,
+		json_encoders={
+			datetime: 
+		}
+	)
 ```
 
 Another common use case is **simplifying JSON encoding** when returning data. If you try to return a datetime or Decimal object, you'll get an encoding error. So, define your encoders globally. 
