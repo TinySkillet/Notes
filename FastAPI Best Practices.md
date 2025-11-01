@@ -202,8 +202,10 @@ class CustomBaseModel(BaseModel):
 		alias_generator=to_camel,
 		populate_by_name=True,
 		json_encoders={
-			datetime: 
-		}
+			datetime: lambda: v: v.isoformat(),
+			Decimal: float,
+			ObjectId: str,
+		},
 	)
 ```
 
