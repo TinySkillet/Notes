@@ -35,8 +35,7 @@
               "title": "Pydantic"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,10 +206,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "77b3dae165011145",
+  "active": "deb21d49bd08c89d",
   "lastOpenFiles": [
-    "FastAPI Best Practices.md",
     "Pydantic.md",
+    "FastAPI Best Practices.md",
     "image.png",
     "image-1.png",
     "Research Topics.md",
