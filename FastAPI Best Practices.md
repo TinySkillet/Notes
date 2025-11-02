@@ -296,7 +296,7 @@ async def update_post(
 
 The first benefit is that you can easily reuse the dependency across multiple endpoints with just a single  line of code.
 
-Second, there's no performance hit either. **FastAPI caches dependencies per request**, your dependency will be evaluated once in a request.  It is efficient and helps to keep your endpoint clean.
+Second, there's no performance hit either. **FastAPI caches dependencies per request**, your dependency will be evaluated once in a request.  It is efficient and helps to keep your endpoint clean.2
 
 
 #### 11. Avoid creating a new DB connection in every endpoint.
