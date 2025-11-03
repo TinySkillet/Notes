@@ -4,7 +4,18 @@ Data from these data sources -> transform -> IBM watson (metadata) or files, etc
 
 CrushBank needs to query on these data.
 
-Previously Data Lank -> Semantic Search 
+Previously Data Lake -> Semantic Search
+
+Agents
+
+can be accessed through iFrames
+
+Data pipeline, search, chatbots/agents
+
+Python pipeline in Apache Airflow
+
+Secrets, 
+
 
 
 
