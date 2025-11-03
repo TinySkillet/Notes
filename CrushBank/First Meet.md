@@ -8,11 +8,11 @@ Previously Data Lake -> Semantic Search
 
 Agents
 
-can be accessed through iFrames
+can be accessed through `iFrames`
 
 Data pipeline, search, chatbots/agents
 
-Python pipeline in Apache Airflow
+Python pipeline in `Apache Airflow`
 
 Secrets in Azure
 
@@ -25,5 +25,4 @@ Documentation mostly in azure and sharepoint
 Might also be using `n8n`
 
 They're self hosting n8n, they want to migrate to langflow.
-
 

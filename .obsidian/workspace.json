@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "First Meet.md",
+                "file": "CrushBank/First Meet.md",
                 "mode": "source",
                 "source": false
               },
@@ -195,7 +195,7 @@
   },
   "active": "8c2fcf4e99a82f30",
   "lastOpenFiles": [
-    "First Meet.md",
+    "CrushBank/First Meet.md",
     "CrushBank",
     "Pydantic.md",
     "FastAPI Best Practices.md",
