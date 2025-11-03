@@ -14,8 +14,11 @@ Data pipeline, search, chatbots/agents
 
 Python pipeline in Apache Airflow
 
-Secrets, 
+Secrets in Azure
 
+AI Models in IBM cloud
+
+Lot of infrastructures in IBM
 
 
 
