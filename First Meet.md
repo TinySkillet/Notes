@@ -20,5 +20,10 @@ AI Models in IBM cloud
 
 Lot of infrastructures in IBM
 
+Documentation mostly in azure and sharepoint
+
+Might also be using `n8n`
+
+They're self hosting n8n, they want to migrate to langflow.
 
 
