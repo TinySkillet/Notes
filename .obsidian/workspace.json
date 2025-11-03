@@ -4,35 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c82f00bd4b5dea79",
+        "id": "4a0df553ba00e772",
         "type": "tabs",
         "children": [
           {
-            "id": "deb21d49bd08c89d",
+            "id": "8c2fcf4e99a82f30",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "FastAPI Best Practices.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "FastAPI Best Practices"
-            }
-          },
-          {
-            "id": "77b3dae165011145",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Pydantic.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Pydantic"
+              "title": "New tab"
             }
           }
         ]
@@ -206,7 +188,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "deb21d49bd08c89d",
+  "active": "8c2fcf4e99a82f30",
   "lastOpenFiles": [
     "Pydantic.md",
     "FastAPI Best Practices.md",
