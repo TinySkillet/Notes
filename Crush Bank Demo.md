@@ -21,3 +21,9 @@ cb-staging is where all the data/schema will be stored.
 
 `staging` catalog is stored under `cb-staging`.
 
+
+If you want to implement metadata enrichment, you can use:
+`watsonx.data.intelligence for metadata enrichment`
+
+
+In the query workspace, it only works with Presto.
