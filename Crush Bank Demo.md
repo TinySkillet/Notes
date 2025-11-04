@@ -27,3 +27,7 @@ If you want to implement metadata enrichment, you can use:
 
 
 In the query workspace, it only works with Presto.
+
+`cos access_key` and `secret_key` will remain as is unless you create a new bucket.
+
+Include HMAC credential when creating credential for cos.
