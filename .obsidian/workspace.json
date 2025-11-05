@@ -11,10 +11,14 @@
             "id": "af76aee37f15a5c7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "CrushBank/Apache Airflow.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Apache Airflow"
             }
           }
         ]
@@ -189,13 +193,14 @@
   },
   "active": "af76aee37f15a5c7",
   "lastOpenFiles": [
+    "Research - KB.md",
+    "Research Topics.md",
     "CrushBank/Setting up Airflow.md",
     "EL Data Pipelines.md",
     "Entropy.md",
     "CrushBank/Apache Airflow.md",
     "Airbyte.md",
     "Images/image 1.png",
-    "Research - KB.md",
     "Linux File System.md",
     "Packages Linux.md",
     "Pydantic.md",
@@ -204,7 +209,6 @@
     "CrushBank",
     "FastAPI Best Practices.md",
     "image-1.png",
-    "Research Topics.md",
     "Images/image.png",
     "Images/image-1.png",
     "Images/image-5.png",
