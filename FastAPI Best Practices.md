@@ -50,7 +50,7 @@ def endpoint():
 > [!NOTE] 
 > FASTAPI is designed to recognize that we are performing blocking operations within these `def` endpoints, and **it will intelligently run them in separate threads**. This way our application remains responsive. 
 
-![[image.png|552x299]]
+![[image 1.png|552x299]]
 
 
 #### 2. Use `async` friendly code.

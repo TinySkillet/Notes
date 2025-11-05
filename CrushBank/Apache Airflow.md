@@ -7,7 +7,7 @@ The same terminology is used in Apache Airflow but it is known as **DAG**.
 #### **DAG**: Directed Acyclic Graph
 
 It looks something like this:
-![[image.png|484x143]]
+![[image 1.png|484x143]]
 
 
 At the heart of an Airflow is a DAG that defines the collection of different tasks and their dependencies.
@@ -119,3 +119,7 @@ Or you can use the `@dag` operator to turn a function into a **DAG generator.**
 3. **Child Process -> Scheduler -> Database**: When the task is complete, the child process terminates and reports its final status (e.g., "success") back to the main Scheduler process. The Scheduler then updates the task's status in the metadata database.
 
 4. **Webserver -> Database**: This is identical. The UI reads the new status from the database and shows you the green circle of success.
+
+
+
+Setting Up Apache Airflow on Docker: 

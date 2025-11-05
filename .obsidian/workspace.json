@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Apache Airflow.md",
+                "file": "CrushBank/Setting up Airflow.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Apache Airflow"
+              "title": "Setting up Airflow"
             }
           }
         ]
@@ -193,20 +193,22 @@
   },
   "active": "086a59aef5394bf5",
   "lastOpenFiles": [
-    "image.png",
+    "EL Data Pipelines.md",
+    "CrushBank/Setting up Airflow.md",
+    "Entropy.md",
+    "CrushBank/Apache Airflow.md",
+    "Airbyte.md",
+    "Images/image 1.png",
+    "Research - KB.md",
+    "Linux File System.md",
+    "Packages Linux.md",
+    "Pydantic.md",
     "Crush Bank Demo.md",
     "CrushBank/First Meet.md",
-    "Apache Airflow.md",
     "CrushBank",
-    "Pydantic.md",
     "FastAPI Best Practices.md",
     "image-1.png",
     "Research Topics.md",
-    "Linux File System.md",
-    "Entropy.md",
-    "Research - KB.md",
-    "Airbyte.md",
-    "EL Data Pipelines.md",
     "Images/image.png",
     "Images/image-1.png",
     "Images/image-5.png",
@@ -215,7 +217,6 @@
     "Images/image-3.png",
     "Images/image-2.png",
     "JSON KB in RAG.md",
-    "Packages Linux.md",
     "Data Source Connector/High Level Architecture.md",
     "Data Source Connector/Questions to clear.md",
     "RAG/What is RAG?.md",
