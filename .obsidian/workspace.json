@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CrushBank/Apache Airflow.md",
+                "file": "Research - KB.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Apache Airflow"
+              "title": "Research - KB"
             }
           }
         ]
@@ -193,12 +193,12 @@
   },
   "active": "af76aee37f15a5c7",
   "lastOpenFiles": [
+    "CrushBank/Apache Airflow.md",
     "Research - KB.md",
     "Research Topics.md",
     "CrushBank/Setting up Airflow.md",
     "EL Data Pipelines.md",
     "Entropy.md",
-    "CrushBank/Apache Airflow.md",
     "Airbyte.md",
     "Images/image 1.png",
     "Linux File System.md",
