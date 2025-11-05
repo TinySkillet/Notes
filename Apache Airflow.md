@@ -41,5 +41,33 @@ For example,
 - If you wan tot distribute your tasks across multiple machines, you can use the **Celery Executor**.
 
 
-Look into Azure One Lake
 
+> [!NOTE] 
+>Look into Azure One Lake
+
+
+
+---
+
+
+####  Declaring a DAG
+```python
+import datetime
+
+from airflow import DAG
+from airflow.operators.empty import EmptyOperator
+
+with DAG(
+	dag_id="my_dag_name",
+	start_date=datetime.datetime(2021, 1, 1),
+	schedule="@daily",
+):
+	EmptyOperator(task_id="task")
+```
+
+```python
+my_dag = DAG(
+	dag_id="my_dag_name",
+	start_date=datetime.Date
+)
+```
