@@ -41,5 +41,5 @@ For example,
 - If you wan tot distribute your tasks across multiple machines, you can use the **Celery Executor**.
 
 
-Look into Azu
+Look into Azure One Lake
 
