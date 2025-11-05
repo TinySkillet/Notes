@@ -86,6 +86,27 @@ Or you can use the `@dag` operator to turn a function into a **DAG generator.**
 
 
 ### How it all works
+
+##### When using `CeleryExecutor`
+1. **You -> Webserver:** You click "run" in the UI. The Webserver's only job here is to take that request and write it into Airflow's **Metadata Database**.
+    
+2. **Scheduler -> Database:** The **Scheduler** is constantly checking the database for two things: (a) DAGs that are due to run on their schedule, and (b) DAGs that were manually triggered (like yours).
+    
+3. **Scheduler Sees the Job:** The Scheduler sees the "run" request you created. It checks the DAG's dependencies and sees that the say_hello task is ready to run.
+    
+4. **Scheduler -> Queue:** The Scheduler places the say_hello task into a **Queue** (like a to-do list).
+    
+5. **Worker -> Queue:** The **Worker** is constantly listening to the Queue, waiting for a job to do. It sees say_hello, grabs it, and is now responsible for it.
+    
+6. **Worker Executes:** The Worker runs the command: echo 'Hello World...'.
+    
+7. **Worker -> Database:** After the command finishes, the Worker updates the status of the task (e.g., "success") in the **Metadata Database**.
+    
+8. **Webserver -> Database:** The Webserver reads this new status from the database and updates the UI to show you that the task succeeded.
+
+
+
+##### When using `LocalExecutor`
 1. **You -> Webserver -> Database:** The request is recorded.
 
 2. **Scheduler -> Database**: The Scheduler sees the manually triggered run request. It checks dependencies and sees the say_hello task is ready.
