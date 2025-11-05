@@ -84,3 +84,17 @@ EmptyOperator(task_id="task", dag=my_dag)
 
 Or you can use the `@dag` operator to turn a function into a **DAG generator.**
 
+
+### How it all works
+1. **You -> Webserver -> Database:** The request is recorded.
+
+2. **Scheduler -> Database**: The Scheduler sees the manually triggered run request. It checks dependencies and sees the say_hello task is ready.
+
+	Scheduler Executes: This is the key difference. The Scheduler's process now does the following:
+	- It forks a new process on the same machine.
+	- This new child process is given the say_hello task.
+	- The child process executes echo 'Hello World...'.
+
+3. **Child Process -> Scheduler -> Database**: When the task is complete, the child process terminates and reports its final status (e.g., "success") back to the main Scheduler process. The Scheduler then updates the task's status in the metadata database.
+
+4. **Webserver -> Database**: This is identical. The UI reads the new status from the database and shows you the green circle of success.
