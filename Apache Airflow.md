@@ -20,3 +20,22 @@ This entire flow is the **DAG**.
 
 #### **Operator**
 To create tasks in a DAG, we have something called the *operator*. Think of it like a function provided by Airflow which you can use to create the tasks.
+
+There are lots of different operators in Airflow. Examples:
+
+- **BashOperator** - executes a bash command
+- **PythonOperator** - executes an arbitrary Python function
+- **EmailOperator** - sends an email
+
+**Use the @task decorator to execute an arbitrary Python function. The @task decorator is recommended over the classic *PythonOperator***
+
+If you want to read data from **PostgreSQL** or store data in **Amazon S3**, there are different operators that will make your life easier. 
+
+
+#### **Executor**
+To run a **DAG** we have something called **Executors.**  They define how your tasks will run.
+
+For example,
+- If you want to run your tasks sequentially, you can use a **Sequential Executor**.
+If you 
+
