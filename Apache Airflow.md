@@ -32,6 +32,12 @@ There are lots of different operators in Airflow. Examples:
 If you want to read data from **PostgreSQL** or store data in **Amazon S3**, there are different operators that will make your life easier. 
 
 
+- An **Operator** is a template or a class. It's a "cookie cutter" that knows how to do one specific 
+  type of thing (run bash, run Python, connect to a database).
+  
+- A **Task** is a specific instance of an operator. It's the "cookie" you make with the cutter. You 
+  give it a unique task_id and specific parameters (like the exact bash_command to run).
+
 #### **Executor**
 To run a **DAG** we have something called **Executors.**  They define how your tasks will run.
 
