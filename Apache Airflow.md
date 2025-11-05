@@ -37,5 +37,7 @@ To run a **DAG** we have something called **Executors.**  They define how your t
 
 For example,
 - If you want to run your tasks sequentially, you can use a **Sequential Executor**.
-If you 
+- If you want to run your tasks parallel in a single machine, you can use the **Local Executor**.
+- If you wan tot distribute your tasks across multiple machines, you can use the **Celery Executor**.
+
 
