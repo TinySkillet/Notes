@@ -68,6 +68,13 @@ with DAG(
 ```python
 my_dag = DAG(
 	dag_id="my_dag_name",
-	start_date=datetime.Date
+	start_date=datetime.datetime(2021, 1, 1),
+	schedule="@daily",
 )
+
+EmptyOperator(task_id="task", dag=my_dag)
 ```
+
+
+Or you can use the `@dag` operator to turn a function into a **DAG generator.**
+
