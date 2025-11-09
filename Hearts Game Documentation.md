@@ -1,5 +1,4 @@
 This document outlines the complete project plan and technical specifications for the "Heart Guesser Gauntlet" web application. It is intended for use by AI agents to guide development.
-
 ## 1. Project Goal
 
 The primary goal is to build a full-stack web application where users can register, log in, and play a timed game that consumes an external API. The application must manage user scores, enforce different game mode rules, and display a competitive leaderboard.
@@ -115,8 +114,8 @@ These are the primary authenticated endpoints for gameplay.
 
 ## 7. Implementation Order
 
-1.  **Backend Setup:** Initialize the FastAPI project in `Backend/`. Set up SQLAlchemy, Alembic, Redis, and the database connection. **Use Docker with a `docker-compose.yml` to run the PostgreSQL and Redis services.**
-2.  **Models & Migrations:** Create the `User` and `Score` SQLAlchemy models. Use Alembic to generate and run the initial database migration.
+1.  **Backend Setup:** Initialize the FastAPI project in `Backend/`. Set up SQLAlchemy, Alembic, Redis, and the database connection. Use Docker with a `docker-compose.yml` to run the PostgreSQL and Redis services.
+2.  **Models & Migrations:** Create the necessary SQLAlchemy models. Use Alembic to generate and run the initial database migration.
 3.  **Authentication Endpoints:** Build and test the user registration and login endpoints.
 4.  **Backend Caching & Game Logic:** Implement the Redis integration. Create the background worker to populate the cache. Build and test the `/api/game/next-question` and `/api/game/verify-answer` endpoints.
 5.  **Score & Leaderboard Endpoints:** Build and test the endpoints for submitting scores and retrieving the two leaderboard views.
