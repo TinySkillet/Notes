@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CIS Assignment Summary.md",
+                "file": "FastAPI Best Practices.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CIS Assignment Summary"
+              "title": "FastAPI Best Practices"
             }
           },
           {
@@ -207,8 +207,8 @@
   },
   "active": "117bfefe6a63209e",
   "lastOpenFiles": [
-    "Hearts Game Documentation.md",
     "CIS Assignment Summary.md",
+    "Hearts Game Documentation.md",
     "CIS Video.md",
     "image-2.png",
     "image-1.png",
