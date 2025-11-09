@@ -21,4 +21,29 @@ It's not enough to say: this is what I did. You have to explain why did you choo
 - How your code communicates with the external software, specifically the 'Heart Game' API.
 - You have to explain how your code sends out requests to that web service and what it does with the information it gets back.
 
-##### 4. Virutal
+##### 4. Virtual Identity
+- This is all about security.
+- How do you know who is playing your game?
+- How your code uses authentication mechanisms like passwords or cookies to securely identify a user.
+- How are you handling logins?
+- Are you using cookies? 
+- You have to break down the authentication system you've built.
+
+
+### Difference between the talk that gets you a full marks to a talk that gets you a pass.
+
+![[image.png|582x252]]
+
+![[image-1.png|581x269]]
+
+
+### THE RED FLAGS
+Mistakes that wreck your grades.
+
+**If you make any of these mistakes, your grade gets an automatic cap.**
+![[image-2.png|437x269]]
+
+
+This assignment isn't just a coding test. It's a **communication test**.
+
+The video must be 
