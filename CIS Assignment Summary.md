@@ -62,3 +62,4 @@ Rubric ranges from **First Class (70%+)** to **Fail (0–39%)**.
 - Creativity
 - Adaptability
 - Course-specific skills (e.g., APIs, security)
+
