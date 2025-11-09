@@ -97,7 +97,6 @@ But for heavier ML models, **use dedicated inference engines** like Triton, Torc
 
 For truly long running computations, use a **Queue + Worker** system.
 
-![[image-2.png|541x228]]
 
 When client sends a request to FastAPI, FastAPI **enqueues** a job to a **message broker** like *RabbitMQ*. A separate worker, e.g., *Celery* **pulls the job from the queue**, **runs** the heavy computation, and **stores the result** in the database. 
 
