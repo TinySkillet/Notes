@@ -18,4 +18,7 @@ It's not enough to say: this is what I did. You have to explain why did you choo
 - You have to explain why did you choose that method for handling events. What were the pros of doing it your way? That's the deeper thinking they are looking for.
 
 ##### 3. Interoperability
-- How your code communicates with the external software, specifically 
+- How your code communicates with the external software, specifically the 'Heart Game' API.
+- You have to explain how your code sends out requests to that web service and what it does with the information it gets back.
+
+##### 4. Virutal
