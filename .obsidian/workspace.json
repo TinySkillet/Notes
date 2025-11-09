@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hearts Game Documentation.md",
+                "file": "CIS Video.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hearts Game Documentation"
+              "title": "CIS Video"
             }
           }
         ],
@@ -208,21 +208,21 @@
   },
   "active": "88517f367218d602",
   "lastOpenFiles": [
-    "FastAPI Best Practices.md",
     "CIS Assignment Summary.md",
     "Hearts Game Documentation.md",
+    "EL Data Pipelines.md",
+    "Airbyte.md",
+    "FastAPI Best Practices.md",
     "CIS Video.md",
     "image-2.png",
     "image-1.png",
     "image.png",
-    "EL Data Pipelines.md",
     "Entropy.md",
     "Research - KB.md",
     "Research Topics.md",
     "Linux File System.md",
     "CrushBank/Apache Airflow.md",
     "CrushBank/Setting up Airflow.md",
-    "Airbyte.md",
     "Images/image 1.png",
     "Packages Linux.md",
     "Pydantic.md",
