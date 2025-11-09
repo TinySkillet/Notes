@@ -35,7 +35,8 @@
               "title": "Hearts Game Documentation"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -205,8 +206,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "117bfefe6a63209e",
+  "active": "88517f367218d602",
   "lastOpenFiles": [
+    "FastAPI Best Practices.md",
     "CIS Assignment Summary.md",
     "Hearts Game Documentation.md",
     "CIS Video.md",
@@ -218,7 +220,6 @@
     "Research - KB.md",
     "Research Topics.md",
     "Linux File System.md",
-    "FastAPI Best Practices.md",
     "CrushBank/Apache Airflow.md",
     "CrushBank/Setting up Airflow.md",
     "Airbyte.md",
