@@ -35,8 +35,7 @@
               "title": "Hearts Game Documentation"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -206,10 +205,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "88517f367218d602",
+  "active": "117bfefe6a63209e",
   "lastOpenFiles": [
-    "CIS Assignment Summary.md",
     "Hearts Game Documentation.md",
+    "CIS Assignment Summary.md",
     "CIS Video.md",
     "image-2.png",
     "image-1.png",
