@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Meeting.md",
+                "file": "Airbyte.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Meeting"
+              "title": "Airbyte"
             }
           }
         ]
@@ -193,20 +193,20 @@
   },
   "active": "2ba3cbd7efb276e0",
   "lastOpenFiles": [
-    "Meeting.md",
-    "CIS Video.md",
-    "Airbyte.md",
     "CIS Assignment Summary.md",
+    "CIS Video.md",
+    "EL Data Pipelines.md",
     "Entropy.md",
     "Hearts Game Documentation.md",
+    "image-2.png",
+    "Linux File System.md",
+    "Meeting.md",
+    "Airbyte.md",
     "image.png",
     "JSON KB in RAG.md",
-    "Linux File System.md",
     "Research - KB.md",
     "Research Topics.md",
     "FastAPI Best Practices.md",
-    "EL Data Pipelines.md",
-    "image-2.png",
     "image-1.png",
     "CrushBank/Apache Airflow.md",
     "CrushBank/Setting up Airflow.md",
@@ -232,7 +232,6 @@
     "RAG",
     "Temp.md",
     "Untitled.canvas",
-    "2025-09-15.md",
-    "Welcome.md"
+    "2025-09-15.md"
   ]
 }
