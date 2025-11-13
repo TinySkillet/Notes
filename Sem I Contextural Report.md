@@ -206,37 +206,17 @@ stored and retrieved. The process follows the following sequence:
 11) The reassembled file is presented to the user through the CLI Interface.
 
 2.4. WORKFLOW DIAGRAM
-Figure 4: Workflow Diagram for Decentralized P2P System
-The sequence of operations begins when the user provides a command either to upload (put) or download (get) a
-file. In the case of uploads, the system first divides the file into parts, then, for each part, it creates a SHA-256 hash
-code to use as a unique identification number, and after that, it stores them locally. Finally, it updates the DHT to
-reflect where those files can be found. During downloads, the system searches for piece locations on the DHT, gets
-them from other nodes, checks their integrity with the hash code, and then combines them into the original file.
-After that, the user is given the file. Storage as well as retrieval techniques are made possible through the content-
-addressed method, and their implementation over the peer-to-peer network results in efficiency and fault tolerance.
-Alongside the user operations, a background process known as the Replication Manager works concurrently. This
-process takes care of the network by sending heartbeat signals to peers to check their connectivity status. If a peer
-goes offline, it detects the failure and ensures that any affected chunks are available from other replicas. It then
-replicates those chunks to other online nodes and updates the DHT with the new location of the storage. If no peers
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-9
-go offline, the system just continues with monitoring. This active replication keeps the data accessible even in the
-case of some nodes leaving the network.
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-10
+
+The sequence of operations begins when the user provides a command either to upload (put) or download (get) a file. In the case of uploads, the system first divides the file into parts, then, for each part, it creates a SHA-256 hash code to use as a unique identification number, and after that, it stores them locally. Finally, it updates the DHT to reflect where those files can be found. During downloads, the system searches for piece locations on the DHT, gets them from other nodes, checks their integrity with the hash code, and then combines them into the original file.
+After that, the user is given the file. Storage as well as retrieval techniques are made possible through the content-addressed method, and their implementation over the peer-to-peer network results in efficiency and fault tolerance.
+Alongside the user operations, a background process known as the Replication Manager works concurrently. This process takes care of the network by sending heartbeat signals to peers to check their connectivity status. If a peer goes offline, it detects the failure and ensures that any affected chunks are available from other replicas. It then replicates those chunks to other online nodes and updates the DHT with the new location of the storage. If no peers go offline, the system just continues with monitoring. This active replication keeps the data accessible even in the case of some nodes leaving the network.
+
 12. LITERATURE REVIEW
 3.1. OVERVIEW
-In contrast to centralized systems, decentralized P2P storage systems poses several major advantages. They are
-recommended for the good treatment of problems like single points of failure, data privacy concerns, and limited
-scalability. Protocols such as HTTP that are normally utilized in central systems fail to distribute files effectively in
-the decentralized environment. That is why the first researchers seek out distributed protocols such as InterPlanetary
-File System (IPFS) (Benet, 2014) and collaborative file systems like CFS (Dabek et al., 2001). Blockchain, fault-
-tolerant systems, and the development of superior encryption techniques have all contributed to a significant rise in
-security and reliability (Tran et al., 2021; Islamay et al., 2022). Therefore, these systems have already found their
-purposes in education, government, and collaborative networks for fostering transparency, user control, and
-protecting against cyber threats (Khayrutdinov et al., 2024).
+In contrast to centralized systems, decentralized P2P storage systems poses several major advantages. They are recommended for the good treatment of problems like single points of failure, data privacy concerns, and limited scalability. Protocols such as HTTP that are normally utilized in central systems fail to distribute files effectively in the decentralized environment. That is why the first researchers seek out distributed protocols such as InterPlanetary
+File System (IPFS) (Benet, 2014) and collaborative file systems like CFS (Dabek et al., 2001). Blockchain, fault- tolerant systems, and the development of superior encryption techniques have all contributed to a significant rise in security and reliability (Tran et al., 2021; Islamay et al., 2022). Therefore, these systems have already found their
+purposes in education, government, and collaborative networks for fostering transparency, user control, and protecting against cyber threats (Khayrutdinov et al., 2024).
+
 3.2. REVIEW OF EXISTING PROJECTS
 3.2.1. INTERPLANETERY FILE SYSTEM (IPFS)
 The InterPlanetary File System (IPFS) provides a means for decentralized file sharing (Benet, 2014). Every
@@ -256,235 +236,135 @@ file into fragments, encrypts them, and shares the fragments among various nodes
 routed through several intermediary nodes to conceal the requester's identity. This multipath clear-path anonymity
 layer can be indirect and may have side effects, such as reduced access speed. Additionally, the unavailability of
 data and low retrieval rates can be issues associated with limited network usage.
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-11
+
+
 3.3. LITERATURE REVIEW
-3.3.1. Peer-to-Peer Distributed Storage Using InterPlanetary File System (Athreya et al., 2021)
-This paper considers the role of IPFS as a decentralized storage solution, demonstrating its benefits over HTTP in
-terms of data reliability, fault tolerance, and non-repudiation. The content-addressable architecture of IPFS ensures
-the availability of data across distributed nodes, thereby reducing dependence on centralized servers. Although the
-paper emphasizes IPFS's applicability to high-availability operations, such as academic and government data
-management, it does not include empirical performance testing. This work will build on the benefits of IPFS in
-content addressing but will prioritize performance issues relevant to small-scale use cases.
+3.3.1. Peer-to-Peer Distributed Storage Using InterPlanetary File System (Athreya et al., 2021) This paper considers the role of IPFS as a decentralized storage solution, demonstrating its benefits over HTTP in terms of data reliability, fault tolerance, and non-repudiation. The content-addressable architecture of IPFS ensures the availability of data across distributed nodes, thereby reducing dependence on centralized servers. Although the paper emphasizes IPFS's applicability to high-availability operations, such as academic and government data management, it does not include empirical performance testing. This work will build on the benefits of IPFS in content addressing but will prioritize performance issues relevant to small-scale use cases.
+
 3.3.2. Decentralized File Sharing (Vaidya et al., 2023)
-This work focuses on decentralized file sharing for mobile devices. The authors assert that distributing data among
-mobile nodes addressed security and privacy concerns typically associated with centralized cloud storage. Yet, the
-research paper is silent on some of the real breaches observed in daily situations such as slow network speeds and
-bandwidth limits that are frequently experienced in mobile environments. This research acknowledges these
-limitations and will consider them in the design and evaluation of the proposed system.
+This work focuses on decentralized file sharing for mobile devices. The authors assert that distributing data among mobile nodes addressed security and privacy concerns typically associated with centralized cloud storage. Yet, the research paper is silent on some of the real breaches observed in daily situations such as slow network speeds and
+bandwidth limits that are frequently experienced in mobile environments. This research acknowledges these limitations and will consider them in the design and evaluation of the proposed system.
+
 3.3.3. Decentralization without Blockchains (Gorai, 2024)
-This research paper propagates the idea of decentralizing the system without a blockchain, highlighting the
-efficiency of classic distributed systems. The author illustrates the possibility of reliable operation using fault-
-tolerant structures such as DHTs, which are free from the computational cost of blockchain, thus correlating with
-this research's objective of being lightweight and efficient. The study is very useful to applications that are sensitive
-to costs, which is a main factor in small-scale cases.
+This research paper propagates the idea of decentralizing the system without a blockchain, highlighting the efficiency of classic distributed systems. The author illustrates the possibility of reliable operation using fault- tolerant structures such as DHTs, which are free from the computational cost of blockchain, thus correlating with
+this research's objective of being lightweight and efficient. The study is very useful to applications that are sensitive to costs, which is a main factor in small-scale cases.
+
 3.3.4. A Novel Approach for Developing Decentralized Storage and Sharing Systems (Tran et al., 2021)
-The paper presents a dual mode integrated system involving IPFS, blockchain, and encryption algorithms. The
-adoption of Multi-Authority Attribute-Based Encryption (MA-ABE) which offers the authors the multi-tenant
-capability for precise access control is a significant advantage of this. However, the work does not take into
-consideration the fact that data privacy enhancement may incur the cost of computational power as MA-ABE can
-be computationally intensive, especially for small-scale use cases.
+The paper presents a dual mode integrated system involving IPFS, blockchain, and encryption algorithms. The adoption of Multi-Authority Attribute-Based Encryption (MA-ABE) which offers the authors the multi-tenant capability for precise access control is a significant advantage of this. However, the work does not take into consideration the fact that data privacy enhancement may incur the cost of computational power as MA-ABE can be computationally intensive, especially for small-scale use cases.
+
 3.3.5. A peer-to-peer storage system design (Hu, 2022)
-This research work investigates P2P systems storage efficiency by employing file segmentation and Reed-Solomon
-codes for redundancy. The researchers demonstrate that file division not only optimizes the storage use but also
-increases the system's fault tolerance. Nevertheless, this method typically increases storage overhead by storing
-duplicate data. The current research work will also include redundancy mechanisms to assure data availability, but
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-12
-will seek to prioritize the minimization of storage overhead, which is one of the main concerns in resource-limited
+This research work investigates P2P systems storage efficiency by employing file segmentation and Reed-Solomon codes for redundancy. The researchers demonstrate that file division not only optimizes the storage use but also increases the system's fault tolerance. Nevertheless, this method typically increases storage overhead by storing duplicate data. The current research work will also include redundancy mechanisms to assure data availability, but will seek to prioritize the minimization of storage overhead, which is one of the main concerns in resource-limited
 environments.
+
 3.3.6. Peer-to-Peer Large-Scale Collaborative Storage Networks (Bocek & Stiller, 2007)
 The research presented here is among the first to investigate collaborative storage networks, its main proposal being
 the use of a voting mechanism for ensuring the integrity of the data in the network. Its provision of a strong incentive
 for participation is a groundbreaking aspect of this idea, while, on the other hand, its dependence on peer consensus
 presents challenges in conflict resolution. This research will investigate this issue with the help of content-
 addressable storage, which offers a reliable and automated verification method.
+
 3.3.7. Secure decentralized storage networks (Greig, 2017)
-This study critically analyzes decentralized storage networks, especially MaidSafe, and mainly addresses issues
-related to client-side vulnerabilities. The author expresses that the main weak points of the system are the endpoints
-that do not provide sufficient security. Apart from the urgent problems being highlighted, the analysis does not
-provide much help in solving them. This research, apart from its security claims, is going to present a network
-design and evaluation that will address the issues of both the client and the network.
+This study critically analyzes decentralized storage networks, especially MaidSafe, and mainly addresses issues related to client-side vulnerabilities. The author expresses that the main weak points of the system are the endpoints that do not provide sufficient security. Apart from the urgent problems being highlighted, the analysis does not
+provide much help in solving them. This research, apart from its security claims, is going to present a network design and evaluation that will address the issues of both the client and the network.
+
 3.3.8. Decentralized File Storage System (Tiwari et al., 2024)
-A decentralized alternative to Google Drive is proposed in this paper using a P2P architecture that promotes privacy
-and availability. The implementation details or performance measures of the study are not provided as it remains
-theoretical. This research aims to fulfill this gap by offering a practical implementation and assessing its
-performance in a small-scale use case perspective.
+A decentralized alternative to Google Drive is proposed in this paper using a P2P architecture that promotes privacy and availability. The implementation details or performance measures of the study are not provided as it remains theoretical. This research aims to fulfill this gap by offering a practical implementation and assessing its performance in a small-scale use case perspective. 
+
 3.3.9. The Model and Application of Data Storage in a Decentralized Network (Khayrutdinov et al., 2024)
 This paper is centered on the deployment of decentralized storage in the education sector, particularly dealing with
 smart contracts automating data transactions. Besides the development of a user-oriented decentralized application
 (dApp) for file management in universities, the research does not discuss the issues caused by the resistance to the
 technology from the users.
+
 3.3.10. Decentralized identifiers for peer-to-peer service discovery (Farmer et al., 2021)
 The paper presents decentralized identifiers (DIDs) for P2P networks service discovery. Although it is original, the
 framework does not have any implementation details, especially for load balancing. This research will consider load
 distribution within the scope of small-scale use cases.
+
 3.3.11. Implementation of Blockchain and Peer-to-peer Network for Digital Document Management
 (Islamay at al., 2022)
-The purpose of this study is to present blockchain as a new technology for digital document management and, in
-the process, showcase the extent to which records that cannot be changed by the user enhance legal authenticity.
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-13
-Network congestion is the primary reason behind the testing results that showed limitations in transaction speed.
-This research investigates the case of decentralization without the use of blockchain to reduce overhead and increase
-performance for cases where legally strong authenticity is not the principal issue.
+The purpose of this study is to present blockchain as a new technology for digital document management and, in the process, showcase the extent to which records that cannot be changed by the user enhance legal authenticity.  Network congestion is the primary reason behind the testing results that showed limitations in transaction speed.
+This research investigates the case of decentralization without the use of blockchain to reduce overhead and increase performance for cases where legally strong authenticity is not the principal issue.
+
 3.3.12. Content Addressed, Versioned, P2P File System (Benet, 2014)
-This initial paper presents the revolutionary IPFS, a content-addressable P2P protocol. Apart from being a powerful
-alternative to HTTP, IPFS has its shortcomings like lack of built-in incentives and is not very efficient in managing
-updates. This research builds upon the core principles of content addressing from IPFS.
+This initial paper presents the revolutionary IPFS, a content-addressable P2P protocol. Apart from being a powerful alternative to HTTP, IPFS has its shortcomings like lack of built-in incentives and is not very efficient in managing updates. This research builds upon the core principles of content 
+addressing from IPFS.
+
 3.3.13. Filecoin (Protocol Labs, 2017)
-Filecoin, constructed on IPFS, offers a storage service with the help of an economic model. Adoption, though, is
-jeopardized by issues such as token price fluctuation and elevated hardware needs. Although the current study
-recognizes the role played by Filecoin in subsidized storage, its aspiration is to create a system that is less dependent
+Filecoin, constructed on IPFS, offers a storage service with the help of an economic model. Adoption, though, is jeopardized by issues such as token price fluctuation and elevated hardware needs. Although the current study recognizes the role played by Filecoin in subsidized storage, its aspiration is to create a system that is less dependent
 on hardware resources and is more user-friendly for people with limited capabilities.
+
 3.3.14. Availability and redundancy in harmony: Measuring retrieval times in P2P storage systems (Pamies-
 Juarez et al., 2010)
-The paper assesses the optimization of redundancy applied to erasure coding. Erasure coding is a very useful storage
-mechanism; however, it also entails some extra builds. This research is going to be using redundancy mechanisms
-that are implemented in a way that makes the data available, not just focusing on the storage overhead and the
-complexity of realization but also on the requirements laid down and the preferences of small deployments.
+The paper assesses the optimization of redundancy applied to erasure coding. Erasure coding is a very useful storage mechanism; however, it also entails some extra builds. This research is going to be using redundancy mechanisms that are implemented in a way that makes the data available, not just focusing on the storage overhead and the complexity of realization but also on the requirements laid down and the preferences of small deployments.
+
 3.4. SUMMARY OF LITERATURE REVIEW
-The reviewed literature highlights the evolution of decentralized storage systems, with IPFS and Filecoin
-establishing standards for content addressing and incentive models. Early systems like Freenet and CFS underscore
-the ongoing challenges in balancing privacy, performance, and scalability. Erasure coding and adaptive redundancy
+The reviewed literature highlights the evolution of decentralized storage systems, with IPFS and Filecoin establishing standards for content addressing and incentive models. Early systems like Freenet and CFS underscore the ongoing challenges in balancing privacy, performance, and scalability. Erasure coding and adaptive redundancy
 strategies offer solutions to storage efficiency but require further refinement.
+
 KEY INSIGHTS
-13) Efficiency of DHTs: DHTs offer a viable solution for decentralized lookup and retrieval, as demonstrated by
+1) Efficiency of DHTs: DHTs offer a viable solution for decentralized lookup and retrieval, as demonstrated by
 early systems like Freenet and CFS and their continued relevance in more recent work.
-14) Redundancy Trade-offs: Redundancy mechanisms, while crucial for data availability, introduce trade-offs in
+2) Redundancy Trade-offs: Redundancy mechanisms, while crucial for data availability, introduce trade-offs in
 storage overhead and implementation complexity, requiring careful consideration for specific use cases.
-15) Privacy vs. Performance: Content-addressable storage, as pioneered by IPFS, provides a robust method for
+3) Privacy vs. Performance: Content-addressable storage, as pioneered by IPFS, provides a robust method for
 ensuring data integrity and efficient retrieval in decentralized environments.
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-14
+
 CRITICAL GAPS
-16) Optimized Redundancy for Small-Scale Systems: There is a need for further research on redundancy
+1) Optimized Redundancy for Small-Scale Systems: There is a need for further research on redundancy
 mechanisms tailored to the specific constraints and requirements of small-scale decentralized storage systems.
-17) Performance Evaluation in Realistic Scenarios: More empirical studies are needed to evaluate the
+2) Performance Evaluation in Realistic Scenarios: More empirical studies are needed to evaluate the
 performance of decentralized storage systems in realistic network conditions and under varying workloads.
-18) Usability and Accessibility: Further investigation is required to enhance the usability and accessibility of
+3) Usability and Accessibility: Further investigation is required to enhance the usability and accessibility of
 decentralized storage systems, particularly for users in non-technical fields.
+
 3.5. JUSTIFICATION
 I decided to use Go because of its simple syntax and the robust support for network programming. Its goroutines
-and channels make concurrent programming trivial. Deployment is simple with a single compiled binary. The
-other decision I made was for networking, I opted for libp2p. It is modular and comes with an out-of-the-box
-Kademlia DHT. If I am unable to understand libp2p, then I will instead follow other tutorials to build a custom
-TCP example. A stretch goal is Reed–Solomon erasure coding. It may increase availability by adding redundancy.
-If I have time, I might add it once the core system is up and running. However, I will use Kanban for development.
-Kanban enables me to plan and be flexible when needs alter.
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-15
-19. PRIMARY RESEARCH
+and channels make concurrent programming trivial. Deployment is simple with a single compiled binary. The other decision I made was for networking, I opted for libp2p. It is modular and comes with an out-of-the-box Kademlia DHT. If I am unable to understand libp2p, then I will instead follow other tutorials to build a custom TCP example. A stretch goal is Reed–Solomon erasure coding. It may increase availability by adding redundancy. If I have time, I might add it once the core system is up and running. However, I will use Kanban for development. Kanban enables me to plan and be flexible when needs alter.
+
+4. PRIMARY RESEARCH
 4.1. OBJECTIVE OF PRIMARY RESEARCH
 The purpose of primary research was to understand user preferences, concerns and requirements as well as
 familiarity with decentralized P2P storage solutions. The specific objectives include:
-20) Assess current file storage habits and pain points
-21) Evaluate user attitudes toward data privacy and security
-22) Gauge interest in and openness to decentralized storage solutions
-23) Determine users' technical comfort levels with relevant technologies
-24) Identify desirable features for a potential decentralized storage product
-25) Understand users' backup behaviors and data protection habits
+	1) Assess current file storage habits and pain points
+	2) Evaluate user attitudes toward data privacy and security
+	3) Gauge interest in and openness to decentralized storage solutions
+	4) Determine users' technical comfort levels with relevant technologies
+	5) Identify desirable features for a potential decentralized storage product
+	6) Understand users' backup behaviors and data protection habits
+
 4.1.1. MARKET RESEARCH
 Several decentralized storage solutions currently exist in the market:
-26) IPFS: A protocol designed to create a permanent and decentralized method of storing and sharing files,
+1) IPFS: A protocol designed to create a permanent and decentralized method of storing and sharing files,
 addressing the HTTP protocol's limitations.
-27) BitTorrent: While primarily known for file sharing, BitTorrent represents one of the most widely adopted P2P
+2) BitTorrent: While primarily known for file sharing, BitTorrent represents one of the most widely adopted P2P
 technologies for distributing data.
-28) Filecoin: Built on top of IPFS, it's a blockchain-based cooperative digital storage and data retrieval method.
-29) Storj: An open-source cloud storage platform that encrypts files and distributes them across a decentralized
-network.
+3) Filecoin: Built on top of IPFS, it's a blockchain-based cooperative digital storage and data retrieval method.
+4) Storj: An open-source cloud storage platform that encrypts files and distributes them across a decentralized network.
+
 These existing solutions have varying degrees of adoption and face challenges including:
 ▪ Technical complexity limiting mainstream adoption
 ▪ Balancing security with usability
 ▪ Ensuring adequate node availability and reliability
 ▪ Managing performance expectations compared to centralized solutions
 ▪ Building trust in novel decentralized architectures
+
 4.2. SURVEY QUESTIONNAIRE
 A Google forms survey was distributed to potential users to gather insights about their storage habits, concerns, and
 preferences. The survey included questions about:
-30) Current storage methods
-31) Experience with data loss
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-16
-32) Attitudes toward data privacy
-33) Trust in existing storage solutions
-34) Willingness to participate in decentralized storage networks
-35) Technical comfort levels
-36) Prior experience with similar technologies
-37) Backup behaviors
-38) Desired features for improved storage solutions
+1) Current storage methods
+2) Experience with data loss
+3) Attitudes toward data privacy
+4) Trust in existing storage solutions
+5) Willingness to participate in decentralized storage networks
+6) Technical comfort levels
+7) Prior experience with similar technologies
+8) Backup behaviors
+9) Desired features for improved storage solutions
+
 The survey targeted a demographic primarily consisting of youths (18-29 years) who are active digital content
 consumers and creators.
-4.3. DATA COLLECTION AND ANALYSIS
-4.3.1. DEMOGRAPHIC INFORMATION
-The survey collected responses from 59 participants with ages ranging from 18 to 29 years old, with an average age
-of approximately 21 years.
-4.3.2. CURRENT STORAGE PRACTICES
-Finding 1: Storage Methods
-• 54.5% of respondents store their important files on their
-personal computer/laptop
-• 36.4% use cloud services (Google Drive, Dropbox, OneDrive,
-etc.)
-• 9.1% use external hard drives/USB devices
-Analysis: While cloud storage has gained significant traction, half
-of the respondents still primarily rely on local storage. This indicates potential reluctance to fully commit to cloud
-solutions, possibly due to privacy concerns or costs related to cloud storage.
-Finding 2: File Loss Experience
-• 54.5% have lost important files once
-• 36.4% have lost important files multiple times
-• 9.1% have never lost important files
-Analysis: A striking 91% of respondents have experienced data loss,
-highlighting a critical point that effective storage solutions must
-Figure 5: Finding 1
-Figure 6: Finding 2
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-17
-address. This represents a significant market opportunity for solutions offering improved data resilience.
-Finding 3: Data Privacy Importance
-• 82% consider data privacy very important
-• 18% consider it somewhat important
-• 0% consider it not important
-Analysis: Privacy is a paramount concern for nearly all respondents,
-indicating that any successful storage solution must emphasize robust
-privacy protections.
-4.3.3. PRIVACY AND TRUST CONSIDERATIONS
-Finding 4: Trust in Cloud Storage Providers
-• 27.3% completely trust cloud providers
-• 45.5% somewhat trust cloud providers
-• 18.2% are neutral about cloud providers
-• 9.1% don't really trust cloud providers
-Analysis: There's a notable trust deficit with existing cloud solutions,
-with only a quarter of respondents expressing complete trust. This suggests an opportunity for alternative solutions
-that can provide stronger trust guarantees.
-Finding 5: Trust in Decentralized Storage
-• 72.7% would trust a decentralized system if it's secure
-• 27.3% might trust it but need to learn more
-Analysis: There's significant openness to decentralized alternatives,
-provided security concerns are addressed. The conditional nature of this
-trust ("if it's secure") highlights security as the primary barrier to
-adoption.
-Figure 7: Finding 3
-Figure 8: Finding 4
-Figure 9: Finding 5
-UID: 2216027 Decentralized P2P Data Storage System
-Unit Code: CIS013-3 Aditya Poudel
-18
-4.3.4. TECHNICAL CONSIDERATIONS AND USER EXPERIENCE
-Finding 6: Storage Space Contribution Willingness
-• 45.5% would contribute 5-20 GB
-• 36.4% would contribute 1-5 GB
-• 18.2% don't want to share their storage
-Analysis: The majority of users are willing to participate in a reciprocal
-storage model, though with moderate space contributions. This
-suggests a viable foundation for a peer-to-peer storage network, though
-the system must be designed to function effectively with these contribution limitations.
+
 Finding 7: Tolerance for Occasional Downtime
 • 45.5% would accept occasional downtime as long as it's rare
 • 54.5% might accept it if wait times aren't too long
@@ -542,27 +422,27 @@ Analysis: Less than half of respondents practice regular backups, revealing a si
 acknowledged importance of data protection and actual behavior. Automated or simplified backup processes could
 address this disconnect.
 4.3.7. KEY INSIGHTS AND RECOMMENDATIONS
-39. Security-First Approach: With 83% prioritizing privacy and 75% willing to adopt decentralized storage
+10. Security-First Approach: With 83% prioritizing privacy and 75% willing to adopt decentralized storage
 if secure, any solution must emphasize robust security measures and clearly communicate them to users.
-40. Educational Component: Given the low familiarity with decentralized storage (42% never heard of them),
+11. Educational Component: Given the low familiarity with decentralized storage (42% never heard of them),
 successful products must include educational elements that build understanding and trust.
-41. Gradual Technical Complexity: While the target audience shows reasonable technical aptitude, the strong
+12. Gradual Technical Complexity: While the target audience shows reasonable technical aptitude, the strong
 preference for clear instructions (75%) suggests a guided approach to introducing technical elements.
-42. Data Loss Concerns: With 91% having experienced data loss, emphasizing reliability and redundancy
+13. Data Loss Concerns: With 91% having experienced data loss, emphasizing reliability and redundancy
 would directly address a major pain point.
-43. Flexible Contribution Model: Design systems that function effectively with moderate user contributions
+14. Flexible Contribution Model: Design systems that function effectively with moderate user contributions
 (majority willing to share 5-20GB), possibly with incentives for greater participation.
-44. Balance Performance Expectations: Be transparent about potential performance trade-offs while ensuring
+15. Balance Performance Expectations: Be transparent about potential performance trade-offs while ensuring
 wait times remain reasonable.
-45. Feature Prioritization: Focus development on cross-platform capabilities, flexible sharing options, and
+16. Feature Prioritization: Focus development on cross-platform capabilities, flexible sharing options, and
 personalization features identified as most desirable.
-46. Automated Protection: Given the gap between data value and backup behavior, incorporate automatic
+17. Automated Protection: Given the gap between data value and backup behavior, incorporate automatic
 backup functionality to address the 58% who backup inconsistently or never.
 Figure 15: Finding 12
 UID: 2216027 Decentralized P2P Data Storage System
 Unit Code: CIS013-3 Aditya Poudel
 21
-47. ARTEFACT PLANNING
+18. ARTEFACT PLANNING
 5.1. REQUIREMENT ANALYSIS
 5.1.1. FUNCTIONAL REQUIREMENTS
 Below are the functional requirements categorized using the MoSCoW notation:
@@ -743,7 +623,7 @@ point of failure and has increased resilience (Clarke et al., 2001).
 UID: 2216027 Decentralized P2P Data Storage System
 Unit Code: CIS013-3 Aditya Poudel
 28
-48. TESTING / EVALUATION PLAN
+19. TESTING / EVALUATION PLAN
 6.1. TESTING STRATEGY
 This section outlines the testing methods that would be used if the system were implemented.
 6.1.1. UNIT TESTING
@@ -784,7 +664,7 @@ Unit Code: CIS013-3 Aditya Poudel
 6.2.6. SECURITY
 ▪ What will be evaluated: How well the system protects data.
 ▪ Method: Use penetration testing to find security flaws.
-49. CRITICAL ANALYSIS AND IMPLEMENTATION PLAN
+20. CRITICAL ANALYSIS AND IMPLEMENTATION PLAN
 7.1. CRITICAL ANALYSIS
 The proposed system relies on peer availability, meaning data retrieval may be affected if many peers go offline.
 Since there is no central server, file availability depends on how many nodes store and share the data. If too many
@@ -813,7 +693,7 @@ balance between availability and storage efficiency.
 UID: 2216027 Decentralized P2P Data Storage System
 Unit Code: CIS013-3 Aditya Poudel
 31
-50. CONCLUSION
+21. CONCLUSION
 This report argues for decentralized P2P storage systems as a viable replacement for traditional centralized cloud
 storage. This system works differently from conventional cloud services, which depend on a centralized authority
 for data management. This decentralized option improves data redundancy and eliminates reliance on a single
@@ -832,7 +712,7 @@ study may provide the basis for further improvements in peer-to-peer storage and
 UID: 2216027 Decentralized P2P Data Storage System
 Unit Code: CIS013-3 Aditya Poudel
 32
-51. REFERENCES
+22. REFERENCES
 Athreya, A.M. et al. (2021) ‘Peer-to-Peer Distributed Storage Using InterPlanetary File System’, in. Springer,
 Singapore, pp. 711–721. Available at: https://doi.org/10.1007/978-981-15-3514-7_54.
 Benet, J. (2014) IPFS - Content Addressed, Versioned, P2P File System. Available at: https://ipfs.io/.
@@ -841,7 +721,7 @@ https://doi.org/10.1109/SCEECS57921.2023.10062977.
 Gorai, S. (2024) ‘Decentralization without Blockchains’, pp. 24–32. Available at:
 https://doi.org/10.4324/9781003507352-3.
 Tran, C.-T. et al. (2021) ‘A Novel Approach for Developing Decentralized Storage and Sharing Systems’, pp. 85–
-52. Available at: https://doi.org/10.1145/3457337.3457845.
+23. Available at: https://doi.org/10.1145/3457337.3457845.
 Hu, X. (2022) ‘A peer-to-peer storage system design’, 4th International Conference on Information Science,
 Electrical, and Automation Engineering (ISEAE 2022), 12257, p. 122573L. Available at:
 https://doi.org/10.1117/12.2640216.
@@ -944,22 +824,22 @@ Unit Code: CIS013-3 Aditya Poudel
 36
 Project
 deliverables
-53. Complete Application - Decentralized Peer-to-Peer
+24. Complete Application - Decentralized Peer-to-Peer
 Storage System
-54. Contextual report
-55. Final Report
-56. Poster
+25. Contextual report
+26. Final Report
+27. Poster
 Description of
 your artefact The proposed decentralized peer-to-peer (P2P) storage system
 breaks away from the traditional server-client centralized model.
 Instead of storing everything on a server, the data is spread across
 a network of independent peers who share their storage space.
 This approach has real advantages:
-57. The system stays up and running even when some nodes go
+28. The system stays up and running even when some nodes go
 offline, since there is no single point of failure.
-58. As more people join, the network naturally grows stronger
+29. As more people join, the network naturally grows stronger
 without needing major infrastructure upgrades.
-59. Using storage that is already out there avoids the costs of
+30. Using storage that is already out there avoids the costs of
 building and maintaining data centers.
 This research would benefit users who want to protect their data
 against big companies that provide a centralized storage system.
@@ -974,12 +854,12 @@ Unit Code: CIS013-3 Aditya Poudel
 Aim: To build a scalable and secure decentralized peer-to-peer
 storage system.
 Objectives:
-60. Implement a DHT overlay for peer discovery.
-61. Enable file chunking and distributed storage with integrity
+31. Implement a DHT overlay for peer discovery.
+32. Enable file chunking and distributed storage with integrity
 verification.
-62. Develop redundancy mechanisms to ensure data availability.
-63. Support efficient data retrieval and reconstruction.
-64. Provide a CLI for user interaction.
+33. Develop redundancy mechanisms to ensure data availability.
+34. Support efficient data retrieval and reconstruction.
+35. Provide a CLI for user interaction.
 List of Features
 Core Features:
 • DHT-based peer network using libp2p or Kademlia.
