@@ -1,0 +1,4 @@
+- Open Source SQL query engine
+- Fast, Reliable and Efficient at Scale
+- Only SQL
+- 
