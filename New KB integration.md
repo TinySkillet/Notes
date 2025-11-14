@@ -8,3 +8,4 @@ Make a separate page for data source connectors from where you can configure Dir
 
 Store requirement metadata on App database to know which Trino catalog is connected to which database.
 
+payload ma `query_metadata` bhanne rakhne.
