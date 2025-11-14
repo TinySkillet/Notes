@@ -114,5 +114,61 @@ services:
 
 
 
+#### Connecting to data sources
+
+1. **User provides connection info via UI.**
+```
+    Catalog Name: sales_reports
+
+    Database Type: PostgreSQL
+
+    Hostname: sales-db.mycompany.com
+
+    Port: 5432
+
+    Database Name: sales
+
+    Username: trino_reader
+
+    Password: a_very_secret_password
+   ```
+
+2. **Backend Service constructs the configuration**
+
+
+   The backend takes the user's input and formats it into the configuration Trino understands. 
+   
+```json
+{
+  "connector.name": "postgresql",
+  "connection-url": "jdbc:postgresql://sales-db.mycompany.com:5432/sales",
+  "connection-user": "trino_reader",
+  "connection-password": "a_very_secret_password"
+}   
+```
+
+3. **Backend makes the call to trino coordinator.**
+
+Our service sends an HTTP POST request to the Trino API to create a new catalog.
+
+
+curl -X POST "http://trino-coordinator:8080/v1/catalog" \
+--header "Content-Type: application/json" \
+--header "X-Trino-User: my-admin-user" \
+--data '{
+    "catalogName": "sales_reports",
+    "connectorName": "postgresql",
+    "properties": {
+        "connection-url": "jdbc:postgresql://sales-db.mycompany.com:5432/sales",
+        "connection-user": "trino_reader",
+        "connection-password": "a_very_secret_password"
+    }
+}'
+
+
+
+
+
+
 
 
