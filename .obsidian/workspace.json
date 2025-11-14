@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "New KB integration.md",
+                "file": "JSON KB in RAG.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "New KB integration"
+              "title": "JSON KB in RAG"
             }
           }
         ],
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "d57d67325d55d630",
@@ -209,6 +208,7 @@
   },
   "active": "2f63cf9501f4e745",
   "lastOpenFiles": [
+    "2025-11-14.md",
     "New KB integration.md",
     "Trino.md",
     "Reflective Report UG/Format.md",
@@ -247,7 +247,6 @@
     "Images/image-3.png",
     "Images/image-2.png",
     "Data Source Connector/High Level Architecture.md",
-    "Data Source Connector/Questions to clear.md",
     "Data Source Connector",
     "RAG",
     "Untitled.canvas"
