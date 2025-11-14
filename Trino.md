@@ -133,6 +133,7 @@ services:
     Password: a_very_secret_password
    ```
 
+
 2. **Backend Service constructs the configuration**
 
 
@@ -147,11 +148,12 @@ services:
 }   
 ```
 
+
 3. **Backend makes the call to trino coordinator.**
 
 Our service sends an HTTP POST request to the Trino API to create a new catalog.
 
-
+```sh
 curl -X POST "http://trino-coordinator:8080/v1/catalog" \
 --header "Content-Type: application/json" \
 --header "X-Trino-User: my-admin-user" \
@@ -164,7 +166,85 @@ curl -X POST "http://trino-coordinator:8080/v1/catalog" \
         "connection-password": "a_very_secret_password"
     }
 }'
+```
 
+
+The Trino coordinator receives this API call and immediately loads the sales_reports catalog into memory.
+
+---
+
+
+
+Here are the official Trino terms and what they mean in practice.
+
+### 1. Coordinator
+
+The Coordinator is the brain and the single entry point of the Trino cluster. When you submit a query, it's the only component you directly interact with.
+
+Its Responsibilities:
+
+- Receives Queries: It takes the SQL query from a client (like the Trino CLI, a BI tool like Tableau, or your own application).
+
+- Parses and Plans: It parses the SQL to ensure it's valid. Then, it creates a highly optimized "query plan"—a step-by-step recipe for how to fetch and process the data most efficiently.
+
+- Manages Workers: It assigns specific tasks from the query plan to the available Worker nodes. It doesn't process the data itself; it orchestrates the work.
+
+- Gathers Results: It collects the final results from the Workers and sends them back to you.
+
+**There is only one Coordinator in a Trino cluster. It's the master planner.**
+
+### 2. Worker
+
+A Worker is the muscle of the cluster. It's a server whose only job is to execute the tasks given to it by the Coordinator.
+
+Its Responsibilities:
+
+- Executes Tasks: This is the heavy lifting. A task might be "scan the first 10 million rows of the customers table" or "join this data I have with data from another worker."
+
+- Connects to Data Sources: The Workers make the actual connections to your databases (PostgreSQL, S3, etc.) to read the data.
+
+- Processes Data in Memory: Trino is an in-memory engine, meaning Workers perform filtering, transformations, and joins on the data directly in their RAM, which is what makes it so fast.
+
+
+> [!NOTE] 
+> We can have many (from one to thousands of) Workers. Adding more Workers is how you scale Trino to handle more queries and larger datasets.
+
+### 3. Connector
+
+A Connector is a "plugin" that teaches Trino how to communicate with a specific type of data source. It's the translator.
+
+- The PostgreSQL Connector knows how to speak the PostgreSQL protocol.
+
+- The Hive Connector knows how to read data from HDFS or S3 and talk to the Hive Metastore.
+
+- The MongoDB Connector knows how to query MongoDB collections.
+
+
+> [!NOTE] 
+> We have one connector for each type of system you want to query. The connector contains the logic, but it doesn't contain the connection details like hostname or password.
+
+### 4. Catalog
+
+This is the most important concept for your use case. A Catalog is a configured instance of a Connector. It's the bridge that connects Trino to one specific data source.
+
+- You use the PostgreSQL Connector to create a PostgreSQL Catalog.
+
+- This catalog is defined by a set of properties (e.g., in a sales-db.properties file or via the API). These properties tell the connector where to connect:
+
+	- connection-url=jdbc:postgresql://hostname:5432/database
+	-  connection-user=myuser
+	- connection-password=mypassword
+
+
+**The Crucial Difference**: We only have one PostgreSQL Connector in your Trino installation, but you could have ten different PostgreSQL catalogs.
+
+- sales_db (pointing to the sales PostgreSQL server)
+- inventory_db (pointing to the inventory PostgreSQL server)
+- hr_prod (pointing to the HR PostgreSQL server)
+
+
+> [!NOTE]
+> The catalog name is what you use in your SQL queries to tell Trino where to look for the data.
 
 
 
