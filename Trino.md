@@ -63,3 +63,56 @@ Trino on Docker
 https://trino.io/docs/current/installation/containers.html
 
 
+
+### Setting up Trino Cluster with Docker
+
+1. **Project Directory**
+```
+trino-project/
+├── docker-compose.yml
+└── trino/
+    └── etc/
+        ├── config.properties
+        ├── jvm.config
+        └── node.properties
+   ```
+
+2. **trino/etc/jvm.config**
+   This file controls the JVM settings.
+```
+coordinator=true
+node-scheduler.include-coordinator=true
+http-server.http.port=8080
+discovery-server.enabled=true
+discovery.uri=http://localhost:8080
+   ```
+
+3. **trino/etc/node.properties**
+   The file contains settings specific to each node in the cluster.
+```
+node.environment=development
+node.id=a-unique-id-for-this-node
+node.data-dir=/data/trino
+   ```
+
+4. **docker-compose.yml**
+```yaml
+version: '3.7'
+services:
+  trino-coordinator:
+    image: trinodb/trino:latest
+    container_name: trino-coordinator
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./trino/etc:/etc/trino
+   ```
+`docker compose up -d
+
+5. **Open Web Browser**
+   Go to http://localhost:8080 and you will see the Trino Web UI. It will show one active worker(the coordinator, since we configured it to act as a worker too.)
+
+
+
+
+
