@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Presto.md",
+                "file": "Trino.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Presto"
+              "title": "Trino"
             }
           }
         ]
@@ -193,7 +193,7 @@
   },
   "active": "d77397c46eb539d1",
   "lastOpenFiles": [
-    "Presto.md",
+    "Trino.md",
     "Reflective Report UG/Format.md",
     "Sem I Contextural Report.md",
     "Initial AGENTS.md.md",

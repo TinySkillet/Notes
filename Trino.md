@@ -1,3 +1,6 @@
+
+## PRESTO
+
 - Open Source SQL query engine
 - Fast, Reliable and Efficient at Scale
 - Only SQL
@@ -33,7 +36,7 @@ It does not automatically watch for new files in the catalog directory.
 3. It's disruptive: It affects all the users on the system.
 
 
-### Solution: User Trino
+### Solution: Use Trino
 
 Trino is a fork of Presto, create by the original creators of Presto.
 
@@ -41,4 +44,22 @@ Trino directly solves the restart problem with its **Dynamic Catalog Management*
 
 It provides a:
 - REST API to manage data source on a live, running cluster with zero downtime.
+
+
+It is a universal translator for your data sources. Whether your data is in a traditional database, a data lake, or even a NoSQL store, Trino speaks their language and lets you query everything with standard SQL.
+
+You can join data between different systems (e.g., PostgreSQL and MongoDB) in a single query as well.
+
+
+> [!NOTE] Important
+> Even though Trino understands and can efficiently execute SQL, Trino is not a database, as it does not include its own data storage system
+
+
+Trino on Kubernets
+https://trino.io/docs/current/installation/kubernetes.html
+
+
+Trino on Docker
+https://trino.io/docs/current/installation/containers.html
+
 
