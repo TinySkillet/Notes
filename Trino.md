@@ -248,7 +248,39 @@ This is the most important concept for your use case. A Catalog is a configured 
 
 
 
+Python Library
 
+`trino-python-client`
+https://github.com/trinodb/trino-python-client
+
+``` python
+import trino
+
+# 1. Establish the connection to the Trino coordinator
+conn = trino.dbapi.connect(
+    host='localhost',    
+    port=8080,
+    user='your_username',
+    catalog='postgresql',
+    schema='public'      
+)
+
+cur = conn.cursor()
+
+try:
+    cur.execute("SELECT customer_id, name, city FROM customers WHERE city = 'New York'")
+
+    # 4. Fetch the results
+    rows = cur.fetchall()
+
+    # 5. Process the results
+    for row in rows:
+        print(row)
+
+finally:
+    # 6. Always close the connection
+    conn.close()
+```
 
 
 
