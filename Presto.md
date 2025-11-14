@@ -10,3 +10,12 @@ To configure a connection to a data source, you define a **catalog.** A catalog 
 
 We could have a *postgresql_sales* catalog to connect to our sales database in PostgreSQL.
 
+
+#### Architectural Blueprint
+
+1. **API Endpoint**
+2. **Backend Service**: Receives user submission, validates them and orchestrate the Preston configuration update.
+3. **Configuration Store**: A database to store the metadata for the user-configured data sources. 
+4. **Presto Cluster**: Presto coordinator and workers
+5. **Automation/Orchestration Tool** (Kubernetes Operator): The mechanism that will deploy the new configuration files and trigger the Presto reload/restart.
+
