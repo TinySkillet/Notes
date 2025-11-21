@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "Trino"
             }
+          },
+          {
+            "id": "5d2b26b8be1e3852",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -206,12 +220,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2f63cf9501f4e745",
+  "active": "5d2b26b8be1e3852",
   "lastOpenFiles": [
+    "Trino.md",
+    "Untitled.md",
     "JSON KB in RAG.md",
     "2025-11-14.md",
     "New KB integration.md",
-    "Trino.md",
     "Reflective Report UG/Format.md",
     "Sem I Contextural Report.md",
     "Initial AGENTS.md.md",
@@ -246,7 +261,6 @@
     "Images/image-4.png",
     "Images/image-3.png",
     "Images/image-2.png",
-    "Data Source Connector/High Level Architecture.md",
     "Data Source Connector",
     "RAG",
     "Untitled.canvas"
