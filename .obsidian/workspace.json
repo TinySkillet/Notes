@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Heart Game Video Script.md",
+                "file": "CIS Video.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Heart Game Video Script"
+              "title": "CIS Video"
             }
           }
         ]
@@ -193,10 +193,10 @@
   },
   "active": "728691ce87465a5b",
   "lastOpenFiles": [
+    "Heart Game Video Script.md",
     "CIS Assignment Summary.md",
     "CIS Video.md",
     "Hearts Game Documentation.md",
-    "Heart Game Video Script.md",
     "Celery.md",
     "Initial AGENTS.md.md",
     "JSON KB in RAG.md",
