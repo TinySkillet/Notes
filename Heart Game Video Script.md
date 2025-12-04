@@ -1,4 +1,4 @@
-## Introduction (approx. 1 minute)
+1## Introduction (approx. 1 minute)
 
 
 "Hello, and welcome to this walkthrough of my implementation of the Heart Game Project. My name is Aditya Poudel and my University ID is 2216027. In this video, I will break down the core engineering decisions behind this application, focusing on four key themes: Software Design Principles, Event-Driven Programming, interoperability, and Virtual Identity."
