@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ee403c145622526d",
+        "id": "a815d18eae4a2ebe",
         "type": "tabs",
         "children": [
           {
-            "id": "cd50e83a413ce7d2",
+            "id": "728691ce87465a5b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "d57d67325d55d630",
@@ -192,17 +191,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cd50e83a413ce7d2",
+  "active": "728691ce87465a5b",
   "lastOpenFiles": [
-    "CIS Video.md",
-    "Heart Game Video Script.md",
     "CIS Assignment Summary.md",
+    "CIS Video.md",
+    "Hearts Game Documentation.md",
+    "Heart Game Video Script.md",
     "Celery.md",
     "Initial AGENTS.md.md",
     "JSON KB in RAG.md",
     "Sem I Contextural Report.md",
     "Trino.md",
-    "Hearts Game Documentation.md",
     "Design Pattern Study.md",
     "2025-11-14.md",
     "New KB integration.md",
