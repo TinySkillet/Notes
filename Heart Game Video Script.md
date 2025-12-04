@@ -41,27 +41,18 @@ But before that, I want to show a short gameplay of what the game actually looks
 ## 2. Event-Driven Programming (approx. 2.5 minutes)
   
 
-**Concept:** "Next, let's talk about how the app responds to user actions. I adopted an **Event-Driven** architecture to decouple the components even further."
-
-In the frontend, I implemented a custom `EventContext` using a publish-subscribe model.
+"Next, let's talk about how the app responds to user actions. I adopted an **Event-Driven** architecture to decouple the components even further."
 
 
-_(Show code: `Frontend/src/context/EventContext.jsx` and `Frontend/src/utils/eventEmitter.js`
+_show `eventEmitter.js`_
+The heart of my event system is the **EventEmitter** class. This is the foundation that makes all game events possible.
+
+I've defined specific event types for my game: **GAME_STARTED**, **TIMER_EXPIRED**, **QUESTION_ANSWERED**, and **SCORE_UPDATED**. This creates a centralized catalog of all possible events in the application.
 
 
-I created an `eventEmitter` that allows any component to broadcast events like `GAME_STARTED` or `TIMER_EXPIRED` without needing to pass callback functions down through five layers of components."
+**Let me show this in action with the Timer system. The timer component emits events with the time expires.**
 
-"Let me show a concrete example of the event flow:
 
-1. **Event Emission:** When the Timer component counts down to zero, it emits a `TIME_EXPIRED` event using the `eventEmitter.emit(EventTypes.TIMER_EXPIRED)`.
-
-2. **Event Listener:** Meanwhile, the `GameScreen` component has registered a listener: `eventEmitter.on(EventTypes.TIME_EXPIRED, handleGameOver)`
-   
-3. **Action Execution:** When the event fires, the `handleGameOver` function automatically executes, which updates the game state, displays the Game Over screen, and saves the final score.
-
-This same pattern applies to all other user interactions.
-
-**Why did I choose this?** I considered using standard React props for everything. However, as the application grew, passing a 'Game Over' callback from the Timer component up to the Parent and then down to the Scoreboard became unmanageable. By using an event emitter, the Timer simply emits `TIME_UP` and the Game component—which is listening for that event—reacts immediately. This makes the system reactive and significantly cleaner. More importantly, I can add new listeners without modifying the emitting component. For example, if I wanted to add a sound effect when time runs out, I'd just add another listener—no need to touch the Timer code at all.
 
 
 ## 3. Interoperability (approx. 2.5 minutes)
