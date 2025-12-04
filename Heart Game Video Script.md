@@ -71,7 +71,7 @@ By using an event emitter, the Timer simply emits `TIME_UP`, and the Game compon
 
 **Concept:**
 
-"Interoperability is about how my frontend communicates with the backend API. I needed a robust way to handle data exchange."
+"Interoperability is about how the frontend communicates with the backend API. I needed a robust way to handle data exchange."
   
 
 **Implementation - Axios Interceptors:**
