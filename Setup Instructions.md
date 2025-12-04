@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed on your system:
 - Download from: https://www.docker.com/products/docker-desktop/
 - Required for running PostgreSQL and Redis containers
 
-2. **Python 3.10 or higher**
+1. **Python 3.11 or higher**
 
 - Download from: https://www.python.org/downloads/
 - Verify: `python3 --version`
@@ -187,6 +187,16 @@ INFO [alembic.runtime.migration] Running upgrade -> abc123, Initial schema
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```
+
+**OR**
+ 
+```bash
+
+make run
+
+```
+
+if you have make installed.
 
 
 **Backend is now running!**
@@ -669,44 +679,3 @@ HeartGame/
 
 - **Scores ARE saved to leaderboard**
 
-  
-
-## Quick Command Reference
-
-  
-
-```bash
-
-# Backend
-
-cd Backend
-
-docker compose up -d # Start PostgreSQL & Redis
-
-source .venv/bin/activate # Activate virtual environment
-
-alembic upgrade head # Run migrations
-
-uvicorn app.main:app --reload # Start backend server
-
-  
-
-# Frontend
-
-cd Frontend
-
-npm install # Install dependencies
-
-npm run dev # Start frontend server
-
-  
-
-# Stop Docker services
-
-cd Backend
-
-docker compose down # Stop containers
-
-docker compose down -v # Stop and remove volumes (deletes data)
-
-```
