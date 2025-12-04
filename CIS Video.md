@@ -46,5 +46,5 @@ Mistakes that wreck your grades.
 
 This assignment isn't just a coding test. It's a **communication test**.
 
-The video must be authentic.. it should be obvious that the video reflects your understanding...
+The video must be authentic.. it should be obvious that the video reflects your understanding.
 
