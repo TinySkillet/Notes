@@ -59,14 +59,11 @@ I created an `eventEmitter` that allows any component to broadcast events like�
 2. **Event Listener:** Meanwhile, the GameScreen component has registered a listener: `eventEmitter.on(EventTypes.TIME_UP, handleGameOver)`
     
     
-    .
-3. **Action Execution:** When the event fires, the 
-    
-    ```
-    handleGameOver
-    ```
-    
-     function automatically executes, which updates the game state, displays the Game Over screen, and saves the final score.
+3. **Action Execution:** When the event fires, the `handleGameOver` function automatically executes, which updates the game state, displays the Game Over screen, and saves the final score.
+
+This same pattern applies to all other user interactions.
+
+**Why did I choose this?** I considered using standard React props for everything. However, as the application grew, passing a 'Game Over' callback from the Timer component up to the Parent and then down to the Scoreboard became unmanageable. By using an event emitter, the Timer simply emits `TIME_UP` and the Game component—which is listening for that event—reacts immediately. This makes the system reactive and significantly cleaner. More importantly, I can add new listeners without modifying the emitting component. For example, if I wanted to add a sound effect when time runs out, I'd just add another listener—no need to touch the Timer code at all.
 
 
 ## 3. Interoperability (approx. 2.5 minutes)
