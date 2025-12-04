@@ -104,6 +104,8 @@ With the interceptor, the interoperability logic is centralized. The components 
 
 Additionally, I specifically use the **Base64 version** of the external API."
 
+*(Show code: `Backend/app/external/heart_api_client.py`)*
+
 
 **Justification:**
 
@@ -113,7 +115,7 @@ I noticed that fetching questions in real-time created a poor user experience du
 
 - **Redis:** By caching questions, I ensure that when a user asks for the next question, it's served instantly from memory (microseconds) rather than waiting for an external HTTP request (seconds).
 
-- **Base64:** Although the Base64 response body is slightly larger, my tests showed it renders significantly faster on the client side because it avoids additional round-trips to fetch image URLs. This trade-off—slightly larger payload for much faster rendering—was a deliberate choice to optimize the player's experience."
+- **Base64:** Although the Base64 response body is slightly larger, my tests showed it renders significantly faster on the client side because it avoids additional round-trips to fetch image URLs. This trade-off of slightly larger payload for much faster rendering—was a deliberate choice to optimize the player's experience."
 
 ## 4. Virtual Identity (approx. 2.5 minutes)
 
