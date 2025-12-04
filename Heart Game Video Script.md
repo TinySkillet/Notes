@@ -1,16 +1,14 @@
-
 ## Introduction (approx. 1 minute)
 
 "Hello, and welcome to the technical walkthrough of the Heart Game project. In this video, I will break down the core engineering decisions behind this application, focusing on four key themes: Software Design Principles, Event-Driven Programming, Interoperability, and Virtual Identity."
-  
----
-  
+
+
 ## 1. Software Design Principles (approx. 2.5 minutes)
 
 **Concept:**
 
 "For the software design, my primary goal was to achieve **low coupling and high cohesion**. I wanted to ensure that different parts of the application could evolve independently without breaking each other."
-
+  
 
 **Implementation - Factory Pattern:**
 
@@ -35,16 +33,17 @@
 *(Show code: `Backend/app/services/auth_service.py` vs `Backend/app/api/v1/auth.py`)*
 
 "The API endpoints only handle HTTP requests and responses, while the `AuthService` handles the actual logic of registering and verifying users. This ensures high cohesion—related logic stays together."
-  
+
 
 ## 2. Event-Driven Programming (approx. 2.5 minutes)
-
+  
 
 **Concept:**
 
 "Next, let's talk about how the app responds to user actions. I adopted an **Event-Driven** architecture to decouple the components even further."
 
   
+
 **Implementation - Custom Event System:**
 
 "In the frontend, I implemented a custom `EventContext` using a publish-subscribe model."
@@ -63,20 +62,13 @@ I considered using standard React props for everything. However, as the applicat
 
 By using an event emitter, the Timer simply emits `TIME_UP`, and the Game component—which is listening for that event—reacts immediately. This makes the system reactive and significantly cleaner."
 
-  
-
----
-
-  
 
 ## 3. Interoperability (approx. 2.5 minutes)
-
   
 
 **Concept:**
 
 "Interoperability is about how my frontend communicates with the backend API. I needed a robust way to handle data exchange."
-
   
 
 **Implementation - Axios Interceptors:**
@@ -90,7 +82,6 @@ By using an event emitter, the Timer simply emits `TIME_UP`, and the Game compon
 I also have a response interceptor that listens for `401 Unauthorized` errors. If it catches one, it automatically attempts to refresh the token and retry the original request."
 
   
-
 **Justification:**
 
 "**Why this approach?**
@@ -98,21 +89,34 @@ I also have a response interceptor that listens for `401 Unauthorized` errors. I
 I could have manually added the auth header to every single `fetch` call in my components. But that would be repetitive and error-prone (High Coupling). If the auth logic ever changed, I'd have to update every file.
 
 With the interceptor, the interoperability logic is centralized. The components just ask for data, and the API service handles the *how* of the communication, ensuring seamless connectivity with the external Heart Game API."
-
   
 
----
+**Implementation - Redis Caching & Base64 Optimization:**
 
-  
+"To further improve interoperability and performance, I implemented a **Redis Caching Layer**."
+
+*(Show code: `Backend/app/cache/question_cache.py`)*
+
+"The external Heart Game API can be slow, which would normally cause a delay for the user waiting for a question. To solve this, I use Redis to pre-fetch and cache questions.
+
+Additionally, I specifically use the **Base64 version** of the external API."
+
+
+**Justification:**
+
+"**Why Redis and Base64?**
+
+I noticed that fetching questions in real-time created a poor user experience due to network latency.
+
+- **Redis:** By caching questions, I ensure that when a user asks for the next question, it's served instantly from memory (microseconds) rather than waiting for an external HTTP request (seconds).
+
+- **Base64:** Although the Base64 response body is slightly larger, my tests showed it renders significantly faster on the client side because it avoids additional round-trips to fetch image URLs. This trade-off—slightly larger payload for much faster rendering—was a deliberate choice to optimize the player's experience."
 
 ## 4. Virtual Identity (approx. 2.5 minutes)
-
-  
 
 **Concept:**
 
 "Finally, Virtual Identity. Security was a top priority, specifically how we identify who is playing."
-
   
 
 **Implementation - JWT with Access & Refresh Tokens:**
@@ -127,7 +131,6 @@ With the interceptor, the interoperability logic is centralized. The components 
 
 2. **Refresh Token:** Long-lived, used to get a new access token when the old one expires."
 
-  
 
 **Justification:**
 
@@ -138,12 +141,6 @@ With the interceptor, the interoperability logic is centralized. The components 
 - **Scalability:** The server doesn't need to store session data; it just verifies the signature.
 
 - **User Experience:** As I mentioned in my design, users visit the game frequently. It doesn't make sense to force them to log in every time. By using a Refresh Token flow, I can keep the user 'logged in' securely for days or weeks without compromising security. If the access token is stolen, it expires quickly. The refresh token is stored securely and can be revoked if needed."
-
-  
-
----
-
-  
 
 ## Conclusion
 
