@@ -52,8 +52,19 @@ I've defined specific event types for my game: **GAME_STARTED**, **TIMER_EXPIRED
 
 **Let me show this in action with the Timer system. The timer component emits events with the time expires.**
 
+after...
+_show GameScree.jsx
 
 
+
+
+So why did I choose this approach? Three key reasons:
+
+**1. Decoupling Components**: My Timer doesn't need to know about GameScreen. It just emits TIMER_EXPIRED, and any component can listen. This makes my code modular and testable.
+
+**2. Centralized Event Management**: The EventContext provides a single source of truth. All events flow through one emitter, making debugging much easier—I can log every event in one place.
+
+**3. Scalability**: Adding new events is simple. For example, when I added the SCORE_UPDATED event, I didn't have to refactor existing components—I just added a new event type and subscribed where needed."
 
 ## 3. Interoperability (approx. 2.5 minutes)
   
