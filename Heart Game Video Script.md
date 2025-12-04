@@ -41,29 +41,32 @@ But before that, I want to show a short gameplay of what the game actually looks
 ## 2. Event-Driven Programming (approx. 2.5 minutes)
   
 
-**Concept:**
+**Concept:** "Next, let's talk about how the app responds to user actions. I adopted an **Event-Driven** architecture to decouple the components even further."
 
-"Next, let's talk about how the app responds to user actions. I adopted an **Event-Driven** architecture to decouple the components even further."
+**Implementation - Custom Event System:** "In the frontend, I implemented a custom `EventContext` using a publish-subscribe model.
 
-  
 
-**Implementation - Custom Event System:**
+_(Show code: `Frontend/src/context/EventContext.jsx` and `Frontend/src/utils/eventEmitter.js`
 
-"In the frontend, I implemented a custom `EventContext` using a publish-subscribe model."
 
-*(Show code: `Frontend/src/context/EventContext.jsx`)*
+I created an `eventEmitter` that allows any component to broadcast events like `GAME_OVER` or `SCORE_UPDATED` without needing to pass callback functions down through five layers of components."
 
-"I created an `eventEmitter` that allows any component to broadcast events like `GAME_OVER` or `SCORE_UPDATED` without needing to pass callback functions down through five layers of components (prop drilling)."
+"Let me show a concrete example of the event flow:
 
-  
+1. **Event Emission:** When the Timer component counts down to zero, it emits a `TIME_UP` event using `eventEmitter.emit(EventTypes.TIME_UP)`
+    
 
-**Justification:**
-
-"**Why did I choose this?**
-
-I considered using standard React props for everything. However, as the application grew, passing a 'Game Over' callback from the Timer component up to the Parent and then down to the Scoreboard became unmanageable (Prop Drilling).
-
-By using an event emitter, the Timer simply emits `TIME_UP`, and the Game component—which is listening for that event—reacts immediately. This makes the system reactive and significantly cleaner."
+2. **Event Listener:** Meanwhile, the GameScreen component has registered a listener: `eventEmitter.on(EventTypes.TIME_UP, handleGameOver)`
+    
+    
+    .
+3. **Action Execution:** When the event fires, the 
+    
+    ```
+    handleGameOver
+    ```
+    
+     function automatically executes, which updates the game state, displays the Game Over screen, and saves the final score.
 
 
 ## 3. Interoperability (approx. 2.5 minutes)
