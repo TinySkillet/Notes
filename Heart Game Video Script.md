@@ -43,7 +43,7 @@ But before that, I want to show a short gameplay of what the game actually looks
 
 **Concept:** "Next, let's talk about how the app responds to user actions. I adopted an **Event-Driven** architecture to decouple the components even further."
 
-**Implementation - Custom Event System:** "In the frontend, I implemented a custom `EventContext` using a publish-subscribe model.
+In the frontend, I implemented a custom `EventContext` using a publish-subscribe model.
 
 
 _(Show code: `Frontend/src/context/EventContext.jsx` and `Frontend/src/utils/eventEmitter.js`
