@@ -116,7 +116,7 @@ I noticed that fetching questions in real-time created a poor user experience du
 
 **Concept:**
 
-"Finally, Virtual Identity. Security was a top priority, specifically how we identify who is playing."
+"Finally, Virtual Identity. Security was a top priority, specifically to identify who is playing."
   
 
 **Implementation - JWT with Access & Refresh Tokens:**
