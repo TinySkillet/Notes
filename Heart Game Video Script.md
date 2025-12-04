@@ -49,16 +49,14 @@ But before that, I want to show a short gameplay of what the game actually looks
 _(Show code: `Frontend/src/context/EventContext.jsx` and `Frontend/src/utils/eventEmitter.js`
 
 
-I created an `eventEmitter` that allows any component to broadcast events like `GAME_OVER` or `SCORE_UPDATED` without needing to pass callback functions down through five layers of components."
+I created an `eventEmitter` that allows any component to broadcast events like `GAME_STARTED` or `TIMER_EXPIRED` without needing to pass callback functions down through five layers of components."
 
 "Let me show a concrete example of the event flow:
 
-1. **Event Emission:** When the Timer component counts down to zero, it emits a `TIME_UP` event using `eventEmitter.emit(EventTypes.TIME_UP)`
-    
+1. **Event Emission:** When the Timer component counts down to zero, it emits a `TIME_EXPIRED` event using the `eventEmitter.emit(EventTypes.TIMER_EXPIRED)`.
 
-2. **Event Listener:** Meanwhile, the GameScreen component has registered a listener: `eventEmitter.on(EventTypes.TIME_UP, handleGameOver)`
-    
-    
+2. **Event Listener:** Meanwhile, the `GameScreen` component has registered a listener: `eventEmitter.on(EventTypes.TIME_EXPIRED, handleGameOver)`
+   
 3. **Action Execution:** When the event fires, the `handleGameOver` function automatically executes, which updates the game state, displays the Game Over screen, and saves the final score.
 
 This same pattern applies to all other user interactions.
