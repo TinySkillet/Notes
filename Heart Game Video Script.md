@@ -53,9 +53,9 @@ I've defined specific event types for my game: **GAME_STARTED**, **TIMER_EXPIRED
 **Let me show this in action with the Timer system. The timer component emits events with the time expires.**
 
 after...
-_show GameScree.jsx
+_show GameScreen.jsx
 
-
+"And here's how GameScreen listens for that event:"
 
 
 So why did I choose this approach? Three key reasons:
