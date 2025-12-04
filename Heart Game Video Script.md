@@ -1,6 +1,9 @@
 ## Introduction (approx. 1 minute)
 
-"Hello, and welcome to the technical walkthrough of the Heart Game project. In this video, I will break down the core engineering decisions behind this application, focusing on four key themes: Software Design Principles, Event-Driven Programming, Interoperability, and Virtual Identity."
+
+"Hello, and welcome to this walkthrough of my implementation of the Heart Game Project. My name is Aditya Poudel and my University ID is 2216027. In this video, I will break down the core engineering decisions behind this application, focusing on four key themes: Software Design Principles, Event-Driven Programming, interoperability, and Virtual Identity."
+
+But before that, I want to show a short gameplay of what the game actually looks like. 
 
 
 ## 1. Software Design Principles (approx. 2.5 minutes)
