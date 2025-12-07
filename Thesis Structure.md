@@ -1,205 +1,269 @@
-- **Day 1 (Theory & Requirements):** Write **Chapters 1 & 2**. (Target: ~20 pages). Focus on why Centralized storage is bad and how Gossip/CAS works.
-    
-- **Day 2 (The Blueprint):** Write **Chapter 3**. (Target: ~18 pages). Draw the DB Schema and Network Topology diagrams.
-    
-- **Day 3 (The Code):** Write **Chapter 4**. (Target: ~22 pages). This is the easiest section to fill—paste your Go code (structs, handlers) and screenshots.
-    
-- **Day 4 (Analysis):** Write **Chapter 5 & 6**. (Target: ~10 pages). Evaluation and Conclusion.
-    
+## **Schedule**
+
+  
+
+- **Day 1 (Theory & Requirements):** Write **Chapters 1 & 2**. (Target: ~20 pages). Focus on the "Why" (Centralization risks) and the "What" (Hybrid P2P, Local-First).
+
+- **Day 2 (The Blueprint):** Write **Chapter 3**. (Target: ~18 pages). Draw the DB Schema (ERD) and Network Topology diagrams.
+
+- **Day 3 (The Code):** Write **Chapter 4**. (Target: ~22 pages). The core implementation details. Paste code snippets (structs, handlers) and explain the logic.
+
+- **Day 4 (Analysis):** Write **Chapter 5 & 6**. (Target: ~10 pages). Evaluation (O(1) memory usage) and Conclusion.
+
+  
 
 ---
+  
 
-### **Detailed Table of Contents & Content Guide**
+## **Detailed Table of Contents**
 
-#### **Front Matter** (Pages i - v)
+### **Front Matter** (Pages i - v)
 
-- Title Page, Abstract (Update to mention "Hybrid P2P" and "Gossip Protocol"), Acknowledgements, Table of Contents, List of Figures/Tables.
-    
+- Title Page
+
+- Abstract (Keywords: Hybrid P2P, Gossip Protocol, Content-Addressable Storage, Local-First)
+
+- Acknowledgements
+
+- Table of Contents
+
+- List of Figures/Tables  
 
 ---
+  
 
-#### **Chapter 1: Introduction**
+### **Chapter 1: Introduction**
 
-- **Target:** 5 Pages | **Words:** ~1,500
-    
-- **1.1 Introduction to the Problem:** Centralized cloud issues (privacy, cost, shutdowns).
-    
-- **1.2 Introduction to the Project:** Define your solution: A **Hybrid Unstructured P2P system**. Mention it uses **Local-First Architecture** (SQLite) and **Custom TCP Streaming**.
-    
+**Target:** 5 Pages | **Words:** ~1,500
+
+  
+
+- **1.1 Introduction to the Problem:**
+
+- Risks of centralized cloud storage (privacy breaches, single point of failure, censorship, cost).
+
+- **1.2 Introduction to the Solution:**
+
+- A **Hybrid Unstructured P2P System**.
+
+- Key Philosophy: **Local-First Architecture** (using embedded SQLite) + **End-to-End Encryption**.
+
 - **1.3 Aims and Objectives:**
-    
-    1. Secure Transport (Custom TCP + AES).
-        
-    2. Resilient Discovery (Gossip Protocol + Bootstrapping).
-        
-    3. Data Integrity (Content Addressable Storage).
-        
-    4. Production Viability (Systemd integration/Config management).
-        
-- **1.4 Scope:** Small trusted groups. Not using libp2p. Hybrid topology (Mesh + Bootstrap).
-    
+
+1. **Secure Transport:** Custom TCP protocol with AES encryption.
+
+2. **Resilient Discovery:** Gossip protocol for decentralized peer finding.
+
+3. **Data Integrity:** Content-Addressable Storage (CAS) using SHA-1.
+
+4. **Production Viability:** Systemd integration, daemonization, and configuration management.
+
+- **1.4 Scope:**
+
+- Targeted for small-to-medium trusted groups (Mesh topology).
+
+- Not using heavy frameworks like libp2p (built from scratch for educational value and performance control).
+
+  
 
 ---
 
-#### **Chapter 2: Literature Review & Background**
+  
 
-- **Target:** 12 Pages | **Words:** ~3,500
-    
+### **Chapter 2: Literature Review & Background**
+
+**Target:** 12 Pages | **Words:** ~3,500
+
+  
+
 - **2.1 Peer-to-Peer Architectures:**
-    
-    - Structured (DHTs like Chord/Kademlia) vs. **Unstructured** (Gnutella/Your Project).
-        
-    - Explain why you chose **Hybrid Unstructured** (simpler for small groups, highly resilient).
-        
+
+- **Structured (DHTs):** Chord, Kademlia (Complex, rigid).
+
+- **Unstructured:** Gnutella (Simple, flooding-based).
+
+- **Hybrid (Your Choice):** Why it fits—combines the resilience of mesh with the ease of bootstrapping.
+
 - **2.2 Data Discovery & Routing:**
-    
-    - **Gossip Protocols:** Explain the theory of "Peer Exchange." How nodes "infect" each other with peer lists.
-        
+
+- **Gossip Protocols vs. Flooding:** Explain how your "Peer Exchange" works (selective sharing) vs. naive flooding (spamming everyone).
+
 - **2.3 Storage Paradigms:**
-    
-    - **CAS (Content Addressable Storage):** Explain SHA-1 hashing (as used in Git).
-        
-    - **Local-First Software:** The trend of keeping data on user devices (SQLite) vs cloud databases.
-        
+
+- **Content Addressable Storage (CAS):** Explain hashing (SHA-1) as a file ID. Reference Git's object storage.
+
+- **Local-First Software:** The shift back to owning data. Explain why SQLite per node is better than a shared remote DB.
+
+- **Zero-Knowledge Privacy:** Encrypting *before* transmission means the storage node is blind to the content.
+
 - **2.4 Transport & Serialization:**
-    
-    - TCP Streams vs Packets.
-        
-    - **Serialization:** JSON vs. Protocol Buffers vs. **Go Gob** (Explain why you chose Gob—Go native, fast).
-        
+
+- **TCP Streams:** Why streams are necessary for large files (vs. UDP packets).
+
+- **Serialization:** JSON vs. Gob. Justify **Go Gob** (Native, strongly typed, highly efficient for binary data).
+
+  
 
 ---
 
-#### **Chapter 3: System Design (The Blueprint)**
+  
 
-- **Target:** 15 Pages | **Words:** ~3,500 (+ Diagrams)
-    
+### **Chapter 3: System Design (The Blueprint)**
+
+**Target:** 15 Pages | **Words:** ~3,500 (+ Diagrams)
+
+  
+
 - **3.1 High-Level Architecture:**
-    
-    - Diagram: Show "New Node" connecting to "Bootstrap Node" then finding "Peer A" and "Peer B".
-        
-- **3.2 Database Design (The SQLite Schema):**
-    
-    - Crucial Section: Detail the 4 tables from ABOUT.md:
-        
-        1. peers (Discovery)
-            
-        2. files (Metadata)
-            
-        3. shares (Replication tracking)
-            
-        4. keys (Encryption)
-            
-    - Diagram: An ERD (Entity Relationship Diagram) of these tables.
-        
+
+- **Diagram:** "New Node" -> Connects to "Bootstrap" -> Receives Peer List -> Connects to "Peer A/B".
+
+- **3.2 Database Design (The Schema):**
+
+- **ERD Diagram:** Visualizing the 4 tables:
+
+1. `peers` (Discovery/Routing table)
+
+2. `files` (Local Metadata)
+
+3. `shares` (Replication/Gossip tracking)
+
+4. `keys` (Encryption management)
+
 - **3.3 The Custom RPC Protocol:**
-    
-    - Describe the RPC struct.
-        
-    - Explain the **Stream Mode**: How the connection upgrades from "Command Mode" to "Raw Stream" to handle large files without crashing RAM.
-        
+
+- **State Machine:** Connection -> Handshake -> Active -> Streaming.
+
+- **Stream Mode:** Explain the protocol upgrade mechanism (Command Mode -> Raw Stream Mode) for file transfers.
+
 - **3.4 Cryptographic Design:**
-    
-    - Explain the **Stream Cipher** approach (AES CTR/OFB). Why streaming encryption is better than encrypting the whole file in memory.
-        
-- **3.5 Deployment Architecture:**
-    
-    - Explain the **Systemd Service** design (p2p-storage@.service). Discuss security hardening (NoNewPrivileges, ProtectSystem).
-        
+
+- **Stream Ciphers:** Explain AES-CTR/OFB. Why streaming encryption is critical for performance (O(1) memory).
+
+- **3.5 Deployment Architecture (DevOps):**
+
+- **Infrastructure as Code:** The `systemd` service design.
+
+- **Security Hardening:** Explain `NoNewPrivileges`, `ProtectSystem`, and `ReadWritePaths`.
+
+  
 
 ---
 
-#### **Chapter 4: Implementation (The Code)**
+  
 
-- **Target:** 20 Pages | **Words:** ~3,000 (+ Lots of Code/Screenshots)
-    
-- **4.1 Technology Selection:** Go (Concurrency), SQLite (Persistence), Cobra (CLI).
-    
-- **4.2 Transport Layer (tcp_transport.go):**
-    
-    - Show the AcceptLoop.
-        
-    - Show the Gob decoder logic.
-        
-- **4.3 The Gossip Protocol (PeerExchange):**
-    
-    - Code Snippet: Show the logic where a node receives a peer list, filters duplicates, and dials new peers.
-        
-    - Diagram: Sequence diagram of the "Handshake."
-        
-- **4.4 Storage Engine & CAS (storage.go):**
-    
-    - Show the PathTransformFunc (how "abcde..." becomes folders abcde/f12...).
-        
-    - Show the copyEncrypt function.
-        
-- **4.5 Database Integration (db/repo.go):**
-    
-    - Show the SQL queries used to insert a file or find a peer.
-        
-- **4.6 CLI & Configuration:**
-    
-    - Explain the Tiered Config (CLI Flag -> Config File -> Defaults).
-        
-    - Screenshot: The CLI help menu.
-        
+### **Chapter 4: Implementation (The Code)**
+
+**Target:** 20 Pages | **Words:** ~3,000 (+ Code/Screenshots)
+
+  
+
+- **4.1 Technology Stack:** Go (Concurrency/Channels), SQLite (ACID Persistence), Cobra (CLI).
+
+- **4.2 Project Structure:**
+
+- Tree view of the codebase (`p2p/`, `db/`, `server.go`) explaining Separation of Concerns.
+
+- **4.3 Transport Layer (`tcp_transport.go`):**
+
+- Code: The `AcceptLoop` and `HandleConn`.
+
+- Code: The Gob decoder logic.
+
+- **4.4 The Gossip Protocol (`peer_exchange.go`):**
+
+- Code: The logic for receiving a peer list, filtering duplicates, and dialing new peers.
+
+- **Diagram:** Sequence diagram of the "Handshake & Exchange".
+
+- **4.5 Storage Engine & CAS (`storage.go`):**
+
+- Code: `PathTransformFunc` (hashing logic).
+
+- Code: `copyEncrypt` (streaming encryption).
+
+- **4.6 Database Integration (`db/repo.go`):**
+
+- Code: SQL queries for inserting files and "Upserting" peers.
+
+- **4.7 CLI & Configuration:**
+
+- **Precedence Logic:** Explain `CLI Flag > Config File > Defaults`.
+
+- Screenshot: The CLI help menu (`--help`).
+
+  
 
 ---
 
-#### **Chapter 5: Testing & Evaluation**
+  
 
-- **Target:** 8 Pages | **Words:** ~2,000
-    
+### **Chapter 5: Testing & Evaluation**
+
+**Target:** 8 Pages | **Words:** ~2,000
+
+  
+
 - **5.1 Functional Testing:**
-    
-    - **Scenario A: Bootstrapping.** (Screenshot: Node A joins Node B).
-        
-    - **Scenario B: The "Gossip" Effect.** (Screenshot: Node A tells Node B about Node C).
-        
-    - **Scenario C: Streaming Upload.** (Show logs of a large file transferring without memory spikes).
-        
+
+- **Scenario A: Bootstrapping:** Screenshot of Node A joining Node B.
+
+- **Scenario B: Gossip Propagation:** Screenshot of logs showing "Received peer exchange with X peers".
+
+- **Scenario C: Streaming Upload:** Logs showing a file transfer.
+
 - **5.2 Reliability Testing:**
-    
-    - **Persistence Test:** Kill the node, restart it. Does it remember the peers? (Yes, because of SQLite).
-        
-    - **Disconnect Handling:** What happens if a peer quits mid-stream? (Discuss the error filtering mentioned in ABOUT.md).
-        
-- **5.3 Performance Analysis:**
-    
-    - Discuss the efficiency of **Streaming I/O**.
-        
-    - Discuss the "First-Come-First-Served" download logic.
-        
+
+- **Persistence:** Restarting a node and verifying peers are still in the DB.
+
+- **Error Handling:** Discuss how the system filters "broken pipe" errors for stability.
+
+- **5.3 Architectural Efficiency (Performance):**
+
+- **Memory Analysis:** Explain **O(1) Memory Usage**. Because of `io.Copy` and `LimitReader`, a 10GB file transfer uses the same RAM as a 1KB file. This is a major engineering win.
+
+- **Latency:** "First-Come-First-Served" download logic reduces wait times.
+
+  
 
 ---
 
-#### **Chapter 6: Conclusion**
+  
 
-- **Target:** 5 Pages | **Words:** ~1,000
-    
-- **6.1 Summary:** You built a production-ready, daemonized, encrypted P2P system from scratch.
-    
+### **Chapter 6: Conclusion**
+
+**Target:** 5 Pages | **Words:** ~1,000
+
+  
+
+- **6.1 Summary:** A production-ready, daemonized, encrypted P2P system.
+
 - **6.2 Critical Reflection:**
-    
-    - Pivot: Moving from simple memory storage to SQLite was hard but necessary for "Local-First" reliability.
-        
+
+- **The Pivot:** Moving from in-memory storage to SQLite was a key decision for reliability and "Local-First" principles.
+
 - **6.3 Future Work:**
-    
-    - NAT Traversal (STUN/TURN).
-        
-    - File Chunking (revisiting the original idea for massive files).
-        
+
+- NAT Traversal (STUN/TURN) for internet-wide usage.
+
+- File Chunking/Sharding for massive datasets.
+
+  
 
 ---
 
-### **How to fill pages effectively (The "Cheat Sheet")**
+  
 
-1. **The Systemd File:** Paste the entire p2p-storage@.service file in Chapter 4. Explain what ReadWritePaths does. That is 1.5 pages right there.
-    
-2. **SQL Schema:** Don't just list the tables. Paste the CREATE TABLE SQL statements.
-    
-3. **Logs:** Your logs are detailed (timestamps, colored info). Paste screenshots of the logs showing the "Gossip" happening.
-    
-    - Caption: "Figure 4.2: Node receiving Peer Exchange message and updating internal routing table."
-        
-4. **RPC Structs:** Paste the Go structs for MessageStoreFile, MessagePeerExchange, etc. Explain what each field does.
+### **Content Filling Strategy (The "Cheat Sheet")**
+
+  
+
+1. **Systemd Service:** Paste the full `p2p-storage@.service` file in Chapter 4. It fills space and demonstrates professional deployment knowledge.
+
+2. **SQL Schema:** Paste the raw `CREATE TABLE` statements.
+
+3. **Logs:** Use screenshots of your colored terminal logs. They look technical and prove the system works.
+
+- *Caption:* "Figure 4.2: Node receiving Peer Exchange message and updating internal routing table."
+
+1. **Structs:** Paste the Go structs (`MessageStoreFile`, `PeerInfo`). Explain fields line-by-line.
