@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "User Guide.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "User Guide"
             }
           }
         ]
@@ -194,7 +194,7 @@
   },
   "active": "c3e3a6435b32cac4",
   "lastOpenFiles": [
-    "Untitled.md",
+    "User Guide.md",
     "Heart Game Video Script.md",
     "CIS Video.md",
     "Thesis Structure.md",
