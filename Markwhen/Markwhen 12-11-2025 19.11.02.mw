@@ -1,0 +1,23 @@
+title: Decentralized P2P Storage System
+2025-07-30 - 2025-12-08
+
+July 30 2025 - July 31 2025: TCP Transport Layer #milestone #network
+color: #4CAF50
+
+July 31 2025 - August 9 2025: Peer Communication Foundation #core #p2p
+color: #2196F3
+
+October 20 2025 - October 22 2025: Storage Infrastructure #storage #critical
+color: #FF9800
+
+October 25 2025 - October 26 2025: Network File Operations #filesystem
+color: #9C27B0
+
+October 29 2025 - October 30 2025: Security & CLI Implementation #security #cli
+color: #F44336
+
+November 5 2025 - November 6 2025: CLI Enhancement & Features #ux
+color: #3F51B5
+
+December 7 2025 - December 8 2025: Production Readiness #release #final
+color: #E91E63
