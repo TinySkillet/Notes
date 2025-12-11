@@ -51,11 +51,11 @@ Testing confirmed that the system successfully replicates data across nodes, rec
 
 ### **LIST OF TABLES**
 
-| Table | Caption | Page |
-| :--- | :--- | :--- |
-| **4.1** | Functional Requirements (MoSCoW Prioritization) | 25 |
-| **4.2** | Non-Functional Requirements | 26 |
-| **4.3** | Database Schema Definitions | 33 |
-| **6.1** | Memory Usage Analysis: Standard Buffering vs. Streaming I/O | 51 |
-| **7.1** | Project Objectives vs. Final Outcome (Traceability Matrix) | 53 |
-| **8.1** | Comparison of Connectivity Solutions (UPnP vs. STUN/TURN) | 58 |
+| Table   | Caption                                                     | Page |
+| :------ | :---------------------------------------------------------- | :--- |
+| **4.1** | Functional Requirements (MoSCoW Prioritization)             | 25   |
+| **4.2** | Non-Functional Requirements                                 | 26   |
+| **4.3** | Database Schema Definitions                                 | 33   |
+| **6.1** | Memory Usage Analysis: Standard Buffering vs. Streaming I/O | 51   |
+| **7.1** | Project Objectives vs. Final Outcome (Traceability Matrix)  | 53   |
+| **8.1** | Comparison of Connectivity Solutions (UPnP vs. STUN/TURN)   | 58   |
