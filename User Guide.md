@@ -240,3 +240,4 @@ sudo rm /usr/local/bin/DecentralizedP2PStorage
 rm -rf ~/.p2p
 
 ```
+
