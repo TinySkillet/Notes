@@ -5,7 +5,6 @@ To understand **Temporal**, you need to understand the **Four Pillars**.
 ### 1. The Temporal Server
 Think of it as the **Brain**. It tracks the state of every workflow. It doesn't run your code; it manages the *To-Do list*.
 
-
 ### 2. The Activity
 Activities are where you put **non-deterministic** or **risky** code.
 
@@ -41,6 +40,29 @@ Workflows are special. Because Temporal *replays* them to recover state after a 
 - **NO** global variables that change
 
 
-
 > [!NOTE] What is imports_passed_through?
-> Temporal uses a sandbox to ensure your workflow stays deterministic. This helper tells Temopra
+> Temporal uses a sandbox to ensure your workflow stays deterministic. This helper tells Temporal: "It's okay to import these activities into the sandbox; don't try to reload them."
+
+
+### 4. The Worker
+The **Worker** is the bridge between the Server and your code.
+
+```python
+worker = Worker(
+	client,
+	task_queue="my-task-queue", # The 'channel' it listens to
+	workflows=[SayHello],       # Workflows it can run
+	activities=[say_hello],     # Activities it can run 
+	activity_executor=activity_executor,
+)
+```
+
+- **The Task Queue**: This is a string name. The Worker and the Client (the thing starting the workflow) must use the same string.
+- **Registration**: You must explicitly tell the worker which workflows and activities it is allowed to handle.
+
+
+```python
+import asyncio
+from temporal.client import Client
+from app.workflows import SayHello
+```
