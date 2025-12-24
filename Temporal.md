@@ -83,13 +83,13 @@ A **Query** is a way to ask a running workflow for its current state.
 8. **Repeat** until the Workflow returns a result.
 
 
-## Building a demo Hello World program.
+## Building a simple workflow
 Initialize a python project in your desired directory. I recommend using `uv`.
 
 Clone the official repository with `docker compose ` files to spin up a local instance of the Temporal Server.
 
 ```python
-git clone https://github.comt/temporalio/docker-compose.git
+git clone https://github.com/temporalio/docker-compose.git
 cd docker-compose
 docker compose up -d
 ```
@@ -99,21 +99,27 @@ This is the folder structure I used.
 ├── app
 │   ├── activities.py
 │   ├── __init__.py
-│   │   ├── activities.cpython-311.pyc
-│   │   ├── __init__.cpython-311.pyc
-│   │   ├── __init__.cpython-313.pyc
-│   │   ├── run_worker.cpython-311.pyc
-│   │   ├── run_worker.cpython-313.pyc
-│   │   ├── run_workflow.cpython-311.pyc
-│   │   └── workflows.cpython-311.pyc
 │   ├── run_worker.py
 │   ├── run_workflow.py
 │   └── workflows.py
 ├── docker-compose
 │   ├── deployment
-......
-......
+│   │   ├── grafana
+│   │   │   ├── config.ini
+...
+.....
 ```
 
 #### 1. The Activity
 `activities.py`
+```python
+from temporalio import activity
+
+
+@activity.defn
+def say_hello(name: str) -> str:
+	return f"Hello, {name}!"
+```
+
+#### 2. The Workflow
+`workflows.py`
