@@ -201,3 +201,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+
+It can be confusing to understand the difference between `run_worker.py` and `run_workflow.py`.
+
+- `run_worker.py` is like the **Kitchen**. It is the place where the work actually happens. It must stay open (running to accept orders).
+- `run_workflow.py` is the **Customer**: It places an order. Once the order is placed, customer can leave or wait for the food.
+
