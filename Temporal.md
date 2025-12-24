@@ -222,10 +222,15 @@ The only job of `run_worker.py` is to host your code and wait for instructions f
 
 To test the program, run the `run_worker.py` script. This will start the worker.
 ```bash
-❯ uv run -m app.run_worker
+uv run -m app.run_worker
 ```
 
 Now run the `run_workflow.py` script.
-```
+```bash
+uv run -m app.run_workflow
+Workflow result: Hello, Alice!
 ```
 
+
+> [!NOTE] Note
+> It does not really matter which script you run first. If you try to run the `run_workflow.py` script before the other, it will wait until the worker starts and won't execute the code until you run `run_worker.py`.
