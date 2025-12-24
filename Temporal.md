@@ -219,3 +219,13 @@ The only job of `run_worker.py` is to host your code and wait for instructions f
 | **Visibility**     | Not visible to the user; runs in the background.         | Used by your API, CLI, or Cron job to start task. |
 | **Scalability**    | You can run 10 of these to handle more load.             | You run this whenever a business event happens.   |
 | **Error Handling** | If it crashes, restart it; it resumes where it left off. | If it fails, the workflow simply wasn't started.  |
+
+To test the program, run the `run_worker.py` script. This will start the worker.
+```bash
+❯ uv run -m app.run_worker
+```
+
+Now run the `run_workflow.py` script.
+```
+```
+
