@@ -62,12 +62,36 @@ How do you talk to a workflow that is already running?
 A **Signal** is an external trigger sent to a running workflow. It is **Fire and Forget**.
 
 - **Example**: A 'Cancel Order' button or a 'User Verified Email' event.
-  
   *Workflow Action*: It receives the signal and changes its logic (e.g., stops waiting and proceeds).
 
 #### Queries (Output)
 A **Query** is a way to ask a running workflow for its current state.
 
 - **Example**: "What is the current balance?" or "What step are we on?"
-  
-  *Workflow A*
+  *Workflow Action*: It returns a value immediately without changing its state.
+
+
+## The Workflow Lifecycle
+
+1. **Client** sends **ExecuteWorkflow** to **Server**.
+2. **Server** adds a *Start Workflow* task to the **Task Queue**.
+3. **Worker** picks up the task and starts running the **Workflow** code.
+4. **Workflow** hits an **Activity** call and tells the **Server**.
+5. **Server** adds an **Activity Task** to the **Task Queue**.
+6. **Worker** (could be a different one) picks up the **Activity**, runs it, and reports success to the **Server**.
+7. **Server** tells the **Workflow** it can continue to the next line.
+8. **Repeat** until the Workflow returns a result.
+
+
+
+## Build a demo Hello World program.
+Initialize a python project in your desired directory. I recommend using `uv`.
+
+Download the official `docker compose` files from temporalio/docker-compose to spin up a local instance of the Temporal Server.
+
+```python
+git clone https://github.comt/temporalio/docker-compose.git
+cd docker-compose
+docker compose up -d
+```
+
