@@ -207,3 +207,15 @@ It can be confusing to understand the difference between `run_worker.py` and `ru
 - `run_worker.py` is like the **Kitchen**. It is the place where the work actually happens. It must stay open (running to accept orders).
 - `run_workflow.py` is the **Customer**: It places an order. Once the order is placed, customer can leave or wait for the food.
 
+
+The only job of `run_worker.py` is to host your code and wait for instructions from the Temporal Server.
+
+`run_workflow.py` is a short-lived process. It is used to *kick off* or *trigger* the process.
+
+| Feature            | The Worker `run_worker.py`                               | The Starter `run_workflow.py`                     |
+| ------------------ | -------------------------------------------------------- | ------------------------------------------------- |
+| **Duration**       | Runs forever.                                            | Runs once and finishes.                           |
+| **Role**           | *Does* the work.                                         | *Requests* the work.                              |
+| **Visibility**     | Not visible to the user; runs in the background.         | Used by your API, CLI, or Cron job to start task. |
+| **Scalability**    | You can run 10 of these to handle more load.             | You run this whenever a business event happens.   |
+| **Error Handling** | If it crashes, restart it; it resumes where it left off. | If it fails, the workflow simply wasn't started.  |
