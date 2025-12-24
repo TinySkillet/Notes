@@ -123,3 +123,81 @@ def say_hello(name: str) -> str:
 
 #### 2. The Workflow
 `workflows.py`
+```python
+from datetime import timedelta
+
+from temporalio import workflow
+
+with workflow.unsafe.imports_passed_through():
+    from app.activities import say_hello
+
+
+@workflow.defn
+class SayHello:
+    @workflow.run
+    async def run(self, name: str) -> str:
+        return await workflow.execute_activity(
+            say_hello, name, schedule_to_close_timeout=timedelta(seconds=5)
+        )
+```
+
+#### 3. The Worker
+`run_worker.py`
+```python
+import asyncio
+import concurrent.futures
+
+from temporalio.client import Client
+from temporalio.worker import Worker
+
+from app.activities import say_hello
+from app.workflows import SayHello
+
+
+async def main():
+    client = await Client.connect("localhost:7233")
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as activity_executor:
+        worker = Worker(
+            client,
+            task_queue="my-task-queue",
+            workflows=[SayHello],
+            activities=[say_hello],
+            activity_executor=activity_executor,
+        )
+        await worker.run()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+#### 4. The Client (running the workflow)
+`run_workflow.py`
+```python
+import asyncio
+
+from temporalio.client import Client
+
+from app.workflows import SayHello
+
+
+async def main():
+    # Connect to the Temporal server
+    client = await Client.connect("localhost:7233")
+
+    # Start the workflow
+    result = await client.execute_workflow(
+        SayHello.run,
+        "Alice",
+        id="hello-world-workflow-id-001",
+        task_queue="my-task-queue",
+    )
+
+    print(f"Workflow result: {result}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
