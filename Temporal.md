@@ -25,5 +25,22 @@ The workflow is the **Orchestrator**. It coordinates activities.
 class SayHello:
 	@workflow.run
 	async def run(self, name: str) -> str:
-		return await workflow.execute_activity()
+		return await workflow.execute_activity(
+			say_hello,
+			name,
+			schedule_to_close_timeout=timedelta(seconds=5)
+		)
 ```
+
+##### **The Rules of Workflow**
+Workflows are special. Because Temporal *replays* them to recover state after a crash, the code inside `@workflow.run` must be deterministic.
+
+- **NO** `datetime.now()` use `workflow.now()`
+- **NO** `random.randint()` use `workflow.random()`
+- **NO** `requests.get()`, put that in the **Activity**
+- **NO** global variables that change
+
+
+
+> [!NOTE] What is imports_passed_through?
+> Temporal uses a sandbox to ensure your workflow stays deterministic. This helper tells Temopra
