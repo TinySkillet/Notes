@@ -13,7 +13,6 @@ Temporal consists of three main parts working together.
 2. **Temporal Worker**: The **Muscle**. This is your server running your Python code. It asks the Server, *Is there any work to do?*
 3. **Task Queue**: The **Bridge**. It's a dynamic queue where the Server places tasks and Worker picks them up.
 
-
 ## The Four Pillars of Temporal Code
 To write a Temporal application, you must define these four components.
 
@@ -27,4 +26,15 @@ An **Activity** is a function that performs a single, idempotent action. This is
 A **Workflow** is a function that coordinates Activities. It defines the *steps* of your process.
 
 - **The Golden Rule**: A workflow must be **deterministic**. If you run it 100 times with the same input, it must do the exact same thing.
-- **Forbidden in Workflows**: `date`
+- **Forbidden in Workflows**: `datetime.now()`, `random()`, or global variables. You must use the Temporal's built in versions of these.
+
+#### 3. The Worker
+A **Worker** is a process that hosts your Workflow and Activity code.
+
+- It *polls* the **Task Queue** for work.
+- You can have 1 worker or 1000 workers; they all listen to the same Task Queue.
+
+#### 4. The Client
+You can use a **Client** to *Start* a workflow, *Signal* or workflow, or *Query* its status.
+
+## Key Terminology
