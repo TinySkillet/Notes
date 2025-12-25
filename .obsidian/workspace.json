@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bad65d3c2577e687",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Voice Based Agents.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Voice Based Agents"
-            }
-          },
-          {
             "id": "c727cacb9f8121db",
             "type": "leaf",
             "state": {
@@ -67,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#data-connectors",
+                "query": "ibm",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -88,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -206,12 +193,12 @@
       "markwhen:Create new Markwhen file": false
     }
   },
-  "active": "bad65d3c2577e687",
+  "active": "d97e022198cbfb6f",
   "lastOpenFiles": [
+    "Voice Based Agents.md",
     "User Guide.md",
     "Temporal.md",
     "image-3.png",
-    "Voice Based Agents.md",
     "Heart Game Video Script.md",
     "CIS Video.md",
     "Thesis Structure.md",
