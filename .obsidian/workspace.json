@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Temporal.md",
+                "file": "Linux File System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Temporal"
+              "title": "Linux File System"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ibm",
+                "query": "key",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -193,11 +193,14 @@
       "markwhen:Create new Markwhen file": false
     }
   },
-  "active": "d97e022198cbfb6f",
+  "active": "c727cacb9f8121db",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Linux File System.md",
+    "CrushBank/Setting up Airflow.md",
     "Voice Based Agents.md",
-    "User Guide.md",
     "Temporal.md",
+    "User Guide.md",
     "image-3.png",
     "Heart Game Video Script.md",
     "CIS Video.md",
@@ -219,12 +222,10 @@
     "New KB integration.md",
     "Reflective Report UG/Format.md",
     "Reflective Report UG",
-    "Linux File System.md",
     "Meeting.md",
     "Research - KB.md",
     "Research Topics.md",
     "Airbyte.md",
-    "EL Data Pipelines.md",
     "image-2.png",
     "image.png",
     "image-1.png",
