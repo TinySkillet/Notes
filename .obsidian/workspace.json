@@ -11,10 +11,14 @@
             "id": "1c045b6b6a073a26",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Temporal.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Temporal"
             }
           }
         ]
@@ -188,20 +192,21 @@
       "markwhen:Create new Markwhen file": false
     }
   },
-  "active": "38340ba2cff945bb",
+  "active": "1c045b6b6a073a26",
   "lastOpenFiles": [
-    "Temporal Integration for KB Sync.md",
     "temp.md",
+    "Linux File System.md",
+    "Meeting.md",
+    "Thesis Structure.md",
+    "Temporal Integration for KB Sync.md",
     "Temporal.md",
     "Setup Instructions.md",
     "Sem I Contextural Report.md",
     "Research Topics.md",
     "Research - KB.md",
     "New KB integration.md",
-    "Thesis Structure.md",
     "Untitled.md",
     "User Guide.md",
-    "Linux File System.md",
     "CrushBank/Setting up Airflow.md",
     "Voice Based Agents.md",
     "image-3.png",
@@ -220,7 +225,6 @@
     "2025-11-14.md",
     "Reflective Report UG/Format.md",
     "Reflective Report UG",
-    "Meeting.md",
     "image-2.png",
     "image.png",
     "image-1.png",
