@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0c80cc28d88fcedb",
+        "id": "32576a7845b0d2c2",
         "type": "tabs",
         "children": [
           {
-            "id": "c727cacb9f8121db",
+            "id": "a21e0e08cd693a2f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Temporal.md",
+                "file": "Thesis Structure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Temporal"
-            }
-          },
-          {
-            "id": "e1d90f0ea7c30284",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Temporal Integration for KB Sync.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Temporal Integration for KB Sync"
+              "title": "Thesis Structure"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,39 +192,39 @@
       "markwhen:Create new Markwhen file": false
     }
   },
-  "active": "e1d90f0ea7c30284",
+  "active": "38340ba2cff945bb",
   "lastOpenFiles": [
-    "Temporal.md",
     "Temporal Integration for KB Sync.md",
-    "Linux File System.md",
+    "temp.md",
+    "Temporal.md",
+    "Setup Instructions.md",
+    "Sem I Contextural Report.md",
+    "Research Topics.md",
+    "Research - KB.md",
+    "New KB integration.md",
+    "Thesis Structure.md",
     "Untitled.md",
+    "User Guide.md",
+    "Linux File System.md",
     "CrushBank/Setting up Airflow.md",
     "Voice Based Agents.md",
-    "User Guide.md",
     "image-3.png",
     "Heart Game Video Script.md",
     "CIS Video.md",
-    "Thesis Structure.md",
     "Markwhen/Markwhen 12-11-2025 19.11.02.mw",
     "Markwhen/Markwhen 12-11-2025 19.13.42.mw",
     "Markwhen",
-    "temp.md",
-    "Setup Instructions.md",
     "CIS Assignment Summary.md",
     "Hearts Game Documentation.md",
     "Celery.md",
     "Initial AGENTS.md.md",
     "JSON KB in RAG.md",
-    "Sem I Contextural Report.md",
     "Trino.md",
     "Design Pattern Study.md",
     "2025-11-14.md",
-    "New KB integration.md",
     "Reflective Report UG/Format.md",
     "Reflective Report UG",
     "Meeting.md",
-    "Research - KB.md",
-    "Research Topics.md",
     "image-2.png",
     "image.png",
     "image-1.png",
