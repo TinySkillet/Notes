@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "eed5ba3f6de657e2",
+        "id": "87901c984c68d42b",
         "type": "tabs",
         "children": [
           {
-            "id": "1c045b6b6a073a26",
+            "id": "90196a76dfcc59b1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Temporal.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Temporal"
-            }
-          },
-          {
-            "id": "c97f790b63fdf463",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Temporal.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Temporal"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,42 +188,42 @@
       "markwhen:Create new Markwhen file": false
     }
   },
-  "active": "c97f790b63fdf463",
+  "active": "90196a76dfcc59b1",
   "lastOpenFiles": [
-    "Temporal Integration for KB Sync.md",
-    "Thesis Structure.md",
-    "Trino.md",
-    "Untitled.md",
-    "User Guide.md",
-    "Voice Based Agents.md",
-    "Outfit Ideas.md",
     "Temporal.md",
-    "temp.md",
-    "Linux File System.md",
-    "Meeting.md",
-    "Setup Instructions.md",
-    "Sem I Contextural Report.md",
-    "Research Topics.md",
-    "Research - KB.md",
-    "New KB integration.md",
+    "CrushBank/Apache Airflow.md",
     "CrushBank/Setting up Airflow.md",
-    "image-3.png",
-    "Heart Game Video Script.md",
-    "CIS Video.md",
-    "Markwhen/Markwhen 12-11-2025 19.11.02.mw",
+    "CrushBank/First Meet.md",
+    "Data Source Connector/Guide from Gemini.md",
+    "Data Source Connector/Questions to clear.md",
+    "Data Source Connector/High Level Architecture.md",
     "Markwhen/Markwhen 12-11-2025 19.13.42.mw",
-    "Markwhen",
-    "CIS Assignment Summary.md",
-    "Hearts Game Documentation.md",
-    "Celery.md",
-    "Initial AGENTS.md.md",
-    "JSON KB in RAG.md",
-    "Design Pattern Study.md",
+    "RAG/Inverted Index.md",
+    "RAG/What is RAG?.md",
+    "Reflective Report UG/Format.md",
     "2025-11-14.md",
-    "Reflective Report UG",
-    "image-2.png",
+    "Airbyte.md",
+    "Celery.md",
+    "CIS Assignment Summary.md",
+    "CIS Video.md",
+    "Design Pattern Study.md",
+    "EL Data Pipelines.md",
+    "Entropy.md",
+    "FastAPI Best Practices.md",
+    "Heart Game Video Script.md",
+    "Hearts Game Documentation.md",
     "image.png",
     "image-1.png",
+    "image-2.png",
+    "image-3.png",
+    "Initial AGENTS.md.md",
+    "JSON KB in RAG.md",
+    "Linux File System.md",
+    "Meeting.md",
+    "New KB integration.md",
+    "Markwhen/Markwhen 12-11-2025 19.11.02.mw",
+    "Markwhen",
+    "Reflective Report UG",
     "Images/image 1.png",
     "CrushBank",
     "Images/image.png",
