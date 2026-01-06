@@ -11,10 +11,14 @@
             "id": "90196a76dfcc59b1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "RabbitMQ Extras.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "RabbitMQ Extras"
             }
           }
         ]
@@ -190,6 +194,7 @@
   },
   "active": "90196a76dfcc59b1",
   "lastOpenFiles": [
+    "RabbitMQ Extras.md",
     "Temporal.md",
     "CrushBank/Apache Airflow.md",
     "CrushBank/Setting up Airflow.md",
@@ -220,7 +225,6 @@
     "JSON KB in RAG.md",
     "Linux File System.md",
     "Meeting.md",
-    "New KB integration.md",
     "Markwhen/Markwhen 12-11-2025 19.11.02.mw",
     "Markwhen",
     "Reflective Report UG",
