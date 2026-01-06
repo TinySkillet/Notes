@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RabbitMQ Extras.md",
+                "file": "Initial AGENTS.md.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RabbitMQ Extras"
+              "title": "Initial AGENTS.md"
             }
           }
         ]
@@ -192,10 +192,24 @@
       "markwhen:Create new Markwhen file": false
     }
   },
-  "active": "90196a76dfcc59b1",
+  "active": "38340ba2cff945bb",
   "lastOpenFiles": [
+    "JSON KB in RAG.md",
+    "Linux File System.md",
+    "Meeting.md",
+    "Outfit Ideas.md",
     "RabbitMQ Extras.md",
+    "Research - KB.md",
+    "Research Topics.md",
+    "Sem I Contextural Report.md",
+    "Setup Instructions.md",
+    "temp.md",
     "Temporal.md",
+    "Thesis Structure.md",
+    "Trino.md",
+    "Untitled.md",
+    "User Guide.md",
+    "Voice Based Agents.md",
     "CrushBank/Apache Airflow.md",
     "CrushBank/Setting up Airflow.md",
     "CrushBank/First Meet.md",
@@ -207,24 +221,10 @@
     "RAG/What is RAG?.md",
     "Reflective Report UG/Format.md",
     "2025-11-14.md",
-    "Airbyte.md",
-    "Celery.md",
-    "CIS Assignment Summary.md",
-    "CIS Video.md",
-    "Design Pattern Study.md",
-    "EL Data Pipelines.md",
-    "Entropy.md",
-    "FastAPI Best Practices.md",
-    "Heart Game Video Script.md",
-    "Hearts Game Documentation.md",
     "image.png",
     "image-1.png",
     "image-2.png",
     "image-3.png",
-    "Initial AGENTS.md.md",
-    "JSON KB in RAG.md",
-    "Linux File System.md",
-    "Meeting.md",
     "Markwhen/Markwhen 12-11-2025 19.11.02.mw",
     "Markwhen",
     "Reflective Report UG",
