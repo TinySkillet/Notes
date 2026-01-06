@@ -49,3 +49,5 @@ amqp.Table{
 	"x-max-length": 50,
 }
 ```
+
+The first few parameters (name, durable, etc.) are **standard** for every queue. The amqp.Table at the end is the **"Everything Else"** bucket.
